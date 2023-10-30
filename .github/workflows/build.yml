@@ -1,5 +1,6 @@
 name: "godot-ci export"
-
+permissions:
+  contents: write
 on:
   workflow_dispatch:
   push:
@@ -72,8 +73,8 @@ jobs:
           lfs: true
       - name: Setup
         run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
       - name: Install rsync 📚
         run: |
           apt-get update && apt-get install -y rsync
@@ -92,29 +93,29 @@ jobs:
           branch: gh-pages # The branch the action should deploy to.
           folder: build/web # The folder the action should deploy.
 
-  export-mac:
-    name: Mac Export
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:4.1.2
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Mac Build
-        run: |
-          mkdir -v -p build/mac
-          godot -v  --headless --export-release "Mac OSX" build/mac/$EXPORT_NAME.zip
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          name: mac
-          path: build/mac
+  # export-mac:
+  #   name: Mac Export
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: barichello/godot-ci:4.1.2
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4.1.1
+  #       with:
+  #         lfs: true
+  #     - name: Setup
+  #       run: |
+  #         mkdir -v -p ~/.local/share/godot/templates
+  #         mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+  #     - name: Mac Build
+  #       run: |
+  #         mkdir -v -p build/mac
+  #         godot -v  --headless --export-release "Mac OSX" build/mac/$EXPORT_NAME.zip
+  #     - name: Upload Artifact
+  #       uses: actions/upload-artifact@v3.0.0
+  #       with:
+  #         name: mac
+  #         path: build/mac
 
   # deployToSteam:
   #   name: Deploy to Steam 
