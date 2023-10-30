@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckxca7odp7wyx"]
+
+[ext_resource type="Texture2D" uid="uid://15s8li6lqtbt" path="res://Textures/photo_5192813914579118848_y.jpg" id="1_c6qlo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Photo5192813914579118848Y" type="Sprite2D" parent="."]
+position = Vector2(566, 319)
+scale = Vector2(0.891032, 0.891032)
+texture = ExtResource("1_c6qlo")
