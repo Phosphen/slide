@@ -90,7 +90,8 @@ jobs:
       - name: Patch for Cross Origin Isolation and SharedArrayBuffer
         run: |
           cp Scripts/enable-threads.js build/web/enable-threads.js
-          sed -i '' 's|<script src="index.js"></script>|<script src="enable-threads.js"></script><script src="index.js"></script>|g' build/web/index.html
+          cd build/web/
+          sed -i '' 's|<script src="index.js"></script>|<script src="enable-threads.js"></script><script src="index.js"></script>|g' index.html
       - name: Copy host_game.sh to build/web
         run: |
           cp Scripts/host_game.sh build/web/host_game.sh
