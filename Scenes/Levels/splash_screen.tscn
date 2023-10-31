@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://do2c1xdpf2kno"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/splash_screen.gd" id="1_4i2yg"]
+[ext_resource type="Texture2D" uid="uid://15s8li6lqtbt" path="res://Textures/Splash Screens/photo_5192813914579118848_y.jpg" id="1_ky7kw"]
+
+[node name="splash_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4i2yg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -98.0
+offset_right = 1285.0
+offset_bottom = 861.0
+texture = ExtResource("1_ky7kw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
