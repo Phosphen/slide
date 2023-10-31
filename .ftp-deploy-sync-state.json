@@ -1,0 +1,61 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1698752890646,
+    "data": [
+        {
+            "type": "file",
+            "name": "index.apple-touch-icon.png",
+            "size": 12184,
+            "hash": "34274bb02574e17c50bcc9fc0ebe181e3346d2a309b96d188a34951bf96cbd30"
+        },
+        {
+            "type": "file",
+            "name": "index.audio.worklet.js",
+            "size": 7199,
+            "hash": "68eb462e0750e6b087b3eb3c62a225d87a51a6ec414c1d8cdcc51abaf1bc0e8a"
+        },
+        {
+            "type": "file",
+            "name": "index.icon.png",
+            "size": 5584,
+            "hash": "ca7842355306f8f3b8590887f15df449fd1e4c8025d8da057ab265a04a5a109b"
+        },
+        {
+            "type": "file",
+            "name": "index.html",
+            "size": 6539,
+            "hash": "e4dfcf891c9153044ca2b3be24e3fd0b5bd158386d6914ba65631b21db875b16"
+        },
+        {
+            "type": "file",
+            "name": "index.js",
+            "size": 448719,
+            "hash": "5f347a772209d388890048ac2d8828ded2d6df06c20b4de9f64d57aff492378e"
+        },
+        {
+            "type": "file",
+            "name": "index.pck",
+            "size": 66880,
+            "hash": "bb8a2a566a192407929c1746e88c91a832bd123b077961320a0324022c88cce3"
+        },
+        {
+            "type": "file",
+            "name": "index.png",
+            "size": 21443,
+            "hash": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+        },
+        {
+            "type": "file",
+            "name": "index.wasm",
+            "size": 27907743,
+            "hash": "3f2c45b084c00292ffdac3c8094e15d90f6a9b2b82f30804ec28f2d09405e5d1"
+        },
+        {
+            "type": "file",
+            "name": "index.worker.js",
+            "size": 6620,
+            "hash": "039ad9862b66b26cc9cfd502089906bc968bbff61de25a7e6880930a06245fd0"
+        }
+    ]
+}
