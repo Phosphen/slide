@@ -1,8 +1,14 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1698755094329,
+    "generatedTime": 1698759345486,
     "data": [
+        {
+            "type": "file",
+            "name": "host_game.sh",
+            "size": 602,
+            "hash": "30a6842dfabdd1f0a0b3ac925dd891e90b1c419e8cf4ad502cf458cea5954715"
+        },
         {
             "type": "file",
             "name": "index.apple-touch-icon.png",
@@ -37,7 +43,7 @@
             "type": "file",
             "name": "index.pck",
             "size": 66880,
-            "hash": "fac000de94c39d1fd4843ab6242d1565c6203c14ebdd0eaaa3f10a521ced13cf"
+            "hash": "9dfe4e5653ec8ea40495832be7fd1fab58193ef57d9712ea8636c03f45a3ca00"
         },
         {
             "type": "file",
