@@ -1,8 +1,14 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1698759345486,
+    "generatedTime": 1698771738496,
     "data": [
+        {
+            "type": "file",
+            "name": "enable-threads.js",
+            "size": 3047,
+            "hash": "b41c6235cad1553d758f942f793bf97b858a0be1397afc2bd00d64287d6dbb1b"
+        },
         {
             "type": "file",
             "name": "host_game.sh",
@@ -24,8 +30,8 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 6539,
-            "hash": "e4dfcf891c9153044ca2b3be24e3fd0b5bd158386d6914ba65631b21db875b16"
+            "size": 6580,
+            "hash": "a1be2013c222e7da1315bfb83e167e12910be0f37450e379534ee1e1a1df5d02"
         },
         {
             "type": "file",
@@ -41,15 +47,15 @@
         },
         {
             "type": "file",
-            "name": "index.pck",
-            "size": 66880,
-            "hash": "9dfe4e5653ec8ea40495832be7fd1fab58193ef57d9712ea8636c03f45a3ca00"
-        },
-        {
-            "type": "file",
             "name": "index.png",
             "size": 21443,
             "hash": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+        },
+        {
+            "type": "file",
+            "name": "index.pck",
+            "size": 66880,
+            "hash": "7f8c42a31f72e17eb921a629696359ae58bbc23148697c8a107fb450f96ed867"
         },
         {
             "type": "file",
