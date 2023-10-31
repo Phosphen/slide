@@ -1,7 +1,7 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1698771738496,
+    "generatedTime": 1698792301205,
     "data": [
         {
             "type": "file",
@@ -30,8 +30,8 @@
         {
             "type": "file",
             "name": "index.html",
-            "size": 6580,
-            "hash": "a1be2013c222e7da1315bfb83e167e12910be0f37450e379534ee1e1a1df5d02"
+            "size": 6581,
+            "hash": "869d5f8a4442fb8a537ac6509536832de832edbd3758a2c5d2261c7a2ae2ac56"
         },
         {
             "type": "file",
@@ -47,15 +47,15 @@
         },
         {
             "type": "file",
-            "name": "index.png",
-            "size": 21443,
-            "hash": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+            "name": "index.pck",
+            "size": 539888,
+            "hash": "8c1487862cbaaa8f34a28b5e45487590a905a3c4d9e19e012d9d49455d26a5cf"
         },
         {
             "type": "file",
-            "name": "index.pck",
-            "size": 66880,
-            "hash": "7f8c42a31f72e17eb921a629696359ae58bbc23148697c8a107fb450f96ed867"
+            "name": "index.png",
+            "size": 21443,
+            "hash": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
         },
         {
             "type": "file",
