@@ -87,6 +87,10 @@ jobs:
         with:
           name: web
           path: build/web
+      - name: Copy host_game.sh to build/web
+        run: |
+          cp Scripts/host_game.sh build/web/host_game.sh
+          chmod +x build/web/host_game.sh
       - name: Deploy to FTP Server 🚀
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
