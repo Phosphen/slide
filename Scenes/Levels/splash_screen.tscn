@@ -12,17 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4i2yg")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -98.0
-offset_right = 1285.0
-offset_bottom = 861.0
-texture = ExtResource("1_ky7kw")
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -479.5
+offset_right = 640.0
+offset_bottom = 479.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ky7kw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
