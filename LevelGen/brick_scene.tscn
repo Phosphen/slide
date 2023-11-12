@@ -1,24 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw16x5t43kkhp"]
+[gd_scene load_steps=3 format=3 uid="uid://bw16x5t43kkhp"]
 
 [ext_resource type="Texture2D" uid="uid://btbgxv7wfdf3l" path="res://LevelGen/brick.png" id="1_radn4"]
-
-[sub_resource type="GDScript" id="GDScript_ut7ir"]
-script/source = "extends Area2D
-
-var surface_top_y
-
-func _ready():
-	var pos = position
-
-func _physics_process(delta):
-	pass
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
 size = Vector2(150, 34)
 
 [node name="Area2D" type="Area2D"]
-script = SubResource("GDScript_ut7ir")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.587938, 0.265625)
