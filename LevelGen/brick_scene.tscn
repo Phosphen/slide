@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw16x5t43kkhp"]
+
+[ext_resource type="Texture2D" uid="uid://btbgxv7wfdf3l" path="res://LevelGen/brick.png" id="1_radn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
+size = Vector2(150, 34)
+
+[node name="Area2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.587938, 0.265625)
+texture = ExtResource("1_radn4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ph08f")
+one_way_collision = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

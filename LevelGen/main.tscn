@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://buymrux01rude"]
+
+[ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
+[ext_resource type="PackedScene" uid="uid://bw16x5t43kkhp" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
+[ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/wall_scene.tscn" id="3_mbfvh"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_5o2wn")
+platform_scene = ExtResource("2_0q4u1")
+wall_scene = ExtResource("3_mbfvh")
