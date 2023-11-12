@@ -4,23 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_ut7ir"]
 script/source = "extends Area2D
-#
-#const velocity = 150
-#var falling = false
-#
-## Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if falling:
-#		position += Vector2.DOWN * velocity * delta
-#
-#
-#func _on_timer_timeout():
-#	falling = true
+
 var surface_top_y
 
 func _ready():
@@ -28,10 +12,6 @@ func _ready():
 
 func _physics_process(delta):
 	pass
-
-func on_char_reached_top():
-	pass
-#	enable_collider
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
