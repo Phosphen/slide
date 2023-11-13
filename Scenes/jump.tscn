@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7sp4bngjv7pk"]
+[gd_scene load_steps=5 format=3 uid="uid://b7sp4bngjv7pk"]
 
 [ext_resource type="Texture2D" uid="uid://dlxmt2p17lx1l" path="res://Textures/Prototyping/prototyp_1024x1024.png" id="1_xgxt8"]
-[ext_resource type="Script" path="res://Scenes/Player.gd" id="2_4ipf6"]
-[ext_resource type="Texture2D" uid="uid://d4l5m38yea3h5" path="res://Textures/Characters/character.png" id="2_fvi2n"]
+[ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Player/player.tscn" id="4_fyrsg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fu6a"]
 texture = ExtResource("1_xgxt8")
@@ -206,10 +205,6 @@ tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3fu6a")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5elv8"]
-radius = 30.0
-height = 110.0
-
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -217,25 +212,11 @@ tile_set = SubResource("TileSet_urgff")
 format = 2
 layer_0/tile_data = PackedInt32Array(327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 262153, 0, 0, 196617, 0, 0, 131081, 0, 0, 65545, 0, 0, 9, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 0, 0, 0)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(601, 528)
-floor_constant_speed = true
-floor_snap_length = 2.0
-script = ExtResource("2_4ipf6")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_fvi2n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_5elv8")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="CoyoteJumpTimer" type="Timer" parent="CharacterBody2D"]
-wait_time = 0.02
-one_shot = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(601, 528)
+position = Vector2(284, 430)
+
+[node name="Player" parent="." instance=ExtResource("4_fyrsg")]
+position = Vector2(284, 430)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
