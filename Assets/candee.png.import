@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqcgccxaexqbs"
-path="res://.godot/imported/Player.png-3d0801c65bdfc563657cfa304115f1c7.ctex"
+uid="uid://bwxcui4levkol"
+path="res://.godot/imported/candee.png-1575bee591e8521f9dd73eb6e099f7e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Player.png"
-dest_files=["res://.godot/imported/Player.png-3d0801c65bdfc563657cfa304115f1c7.ctex"]
+source_file="res://Assets/candee.png"
+dest_files=["res://.godot/imported/candee.png-1575bee591e8521f9dd73eb6e099f7e1.ctex"]
 
 [params]
 
