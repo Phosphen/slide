@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
 size = Vector2(150.625, 38.7017)
 
-[node name="Area2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
