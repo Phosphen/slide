@@ -21,9 +21,10 @@ AudioManager="*res://Scenes/Global/audio_manager.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/size/viewport_width=480
+window/size/viewport_height=320
+window/size/mode=2
+window/stretch/mode="viewport"
 
 [input]
 
