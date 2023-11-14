@@ -12,9 +12,6 @@ var is_wall_bouncing = false
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
 @onready var guns_animator : AnimationPlayer = $ShootingAnimationPlayer
 @onready var hit_animator : AnimationPlayer = $HitAnimationPlayer
-@onready var hand : Node2D = $Hand
-@onready var pistol : Sprite2D = $Hand/Pivot/Pistol
-@onready var pistol_bullet_marker : Marker2D = $Hand/Pivot/Pistol/PistolBulletMarker
 
 @export var camera : Camera2D
 
@@ -82,28 +79,16 @@ func small_shake():
 	camera.small_shake()
 
 func animate(input_vector):
-	var mouse_position : Vector2 = (get_global_mouse_position() - global_position).normalized()
-	if mouse_position.x > 0 and animator.flip_h:
-		animator.flip_h = false
-	elif mouse_position.x < 0 and not animator.flip_h:
-		animator.flip_h = true
-	
-	hand.rotation = mouse_position.angle()
-	if hand.scale.y == 1 and mouse_position.x < 0:
-		hand.scale.y = -1
-	elif hand.scale.y == -1 and mouse_position.x > 0:
-		hand.scale.y = 1
+	if input_vector != 0:
+		animator.flip_h = input_vector < 0
 	
 	if is_on_floor():
 		if input_vector != 0:
-			animator.play("Run")
+			animator.play("run")
 		else:
-			animator.play("Idle")
+			animator.play("idle")
 	else:
-		if velocity.y > 0:
-				animator.play("Fall")
-		else:
-				animator.play("Jump")
+		animator.play("jump")
 
 func _on_hurtbox_area_entered(_area):
 	hit_animator.play("Hit")
