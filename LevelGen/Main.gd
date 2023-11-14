@@ -36,7 +36,7 @@ func _spawn_level_batch():
 		_spawn_platform(i)
 	for i in range(10):
 		_spawn_walls(wall_index + i)
-	wall_index += 3
+	wall_index += 10
 
 func _spawn_platform(index):
 	var platform = platform_scene.instantiate()
