@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkxt"]
 size = Vector2(64, 256)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
