@@ -14,7 +14,8 @@ var middle
 var wall_index
 
 func _ready():
-	screen_size = get_viewport().size
+#	screen_size = get_viewport().size
+	screen_size = Vector2(1280, 600)
 	screen_width = screen_size.x  # Adjust based on your game's resolution
 	last_platform_position = Vector2(screen_width * 0.5, screen_size.y)
 	wall_index = 0
