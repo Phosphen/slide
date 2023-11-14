@@ -1,7 +1,8 @@
 extends Node
 
-const MARGIN = 256
-const MAX_OFFSET = 50
+@export var MARGIN = 128
+@export var MAX_OFFSET = 50
+@export var DISTANCE_BETWEEN_PLATFORMS = 0.5
 
 @export var platform_scene: PackedScene
 @export var wall_scene: PackedScene
@@ -15,7 +16,7 @@ var wall_index
 
 func _ready():
 #	screen_size = get_viewport().size
-	screen_size = Vector2(1280, 600)
+	screen_size = Vector2(800, 600)
 	screen_width = screen_size.x  # Adjust based on your game's resolution
 	last_platform_position = Vector2(screen_width * 0.5, screen_size.y)
 	wall_index = 0
@@ -48,7 +49,7 @@ func _spawn_platform(index):
 	from = clampf(from, MARGIN, screen_width - MARGIN)
 	to = clampf(to, MARGIN, screen_width - MARGIN)
 	var x_pos = randf_range(from, to)
-	var y_pos = last_platform_position.y - sprite_size.y - 5 * index;
+	var y_pos = last_platform_position.y - sprite_size.y / 2 - DISTANCE_BETWEEN_PLATFORMS * index;
 
 	platform.position = Vector2(x_pos, y_pos)
 	last_platform_position = platform.position

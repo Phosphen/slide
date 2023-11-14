@@ -317,6 +317,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+texture_filter = 1
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_dpnq5")
@@ -324,6 +325,7 @@ movement_data = ExtResource("2_spjjl")
 stats = ExtResource("3_oteuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 material = SubResource("ShaderMaterial_nbr8w")
 sprite_frames = SubResource("SpriteFrames_bx4yl")
 animation = &"Idle"
@@ -344,7 +346,7 @@ material = SubResource("ShaderMaterial_dbnn4")
 position = Vector2(10, -4)
 texture = ExtResource("2_5qatb")
 region_enabled = true
-region_rect = Rect2(160, 64, 16, 16)
+region_rect = Rect2(160.904, 64, 4.87718, 16)
 
 [node name="PistolBulletMarker" type="Marker2D" parent="Hand/Pivot/Pistol"]
 visible = false
