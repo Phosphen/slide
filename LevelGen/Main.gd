@@ -25,7 +25,6 @@ func _ready():
 
 func _spawn_floor():
 	for i in range(4):
-		
 		var floor_instance = wall_scene.instantiate()
 		floor_instance.rotation_degrees = 90.0
 		var sprite_size = _get_sprite_size(floor_instance)

@@ -10,4 +10,4 @@ friction = 125.0
 gravity_scale = 0.8
 jump_strength = 400.0
 high_jump_multiplier = 2.0
-knockback_force = 100.0
+knockback_force = 200.0

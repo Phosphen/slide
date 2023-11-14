@@ -1,16 +1,17 @@
 extends CharacterBody2D
 
 #Data
-var bullets_amount : int = 30
 var is_wall_bouncing = false
+var is_jumping = false
 
 @export var movement_data : MovementData
 @export var stats : Stats
 @export var wall_bounce_strength = Vector2(30, 30) 
+@export var rotation_speed = 360
+@export var high_jump_treshold = 300.0
 
 #Refrences
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
-@onready var guns_animator : AnimationPlayer = $ShootingAnimationPlayer
 @onready var hit_animator : AnimationPlayer = $HitAnimationPlayer
 @onready var hand : Node2D = $Hand
 @onready var pistol : Sprite2D = $Hand/Pivot/Pistol
@@ -20,8 +21,17 @@ var is_wall_bouncing = false
 
 func _ready():
 	stats.health = stats.max_health
-	EventManager.bullets_amount = bullets_amount
 	EventManager.update_bullet_ui.emit()
+
+func _process(delta):
+	print("x ", velocity.x)
+	if is_jumping:
+		# Rotate the character
+		print("rotating ", velocity.y)
+		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta
+	else:
+		# Reset rotation and jumping state when falling down or landing
+		$AnimatedSprite2D.rotation_degrees = 0
 
 func _physics_process(delta):
 	var input_vector = Input.get_axis("move_left", "move_right")
@@ -31,14 +41,16 @@ func _physics_process(delta):
 		apply_friction(delta)
 	
 	apply_gravity(delta)
+		
+	if is_on_floor() and is_jumping:
+		is_jumping = false
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
-	
-	# if Input.is_action_just_pressed("shoot"):
-	# 	if bullets_amount > 0:
-	# 		guns_animator.play("Shoot")
-	
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor() and abs(velocity.x) > high_jump_treshold:
+		jump()
+		is_jumping = true
 	
 	if is_on_wall():
 		wall_bounce(input_vector)
@@ -49,10 +61,6 @@ func _physics_process(delta):
 
 func apply_acceleration(input_vector, delta):
 	velocity.x = lerp(velocity.x, movement_data.max_speed * input_vector, movement_data.acceleration * delta)
-
-#func apply_friction(delta):
-#	if velocity.x != 0:
-#		velocity.x = lerp(velocity.x, 0.0, movement_data.friction * delta)
 
 func apply_friction(delta):
 	velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
@@ -82,16 +90,15 @@ func small_shake():
 	camera.small_shake()
 
 func animate(input_vector):
-	var mouse_position : Vector2 = (get_global_mouse_position() - global_position).normalized()
-	if mouse_position.x > 0 and animator.flip_h:
+	if input_vector > 0 and animator.flip_h:
 		animator.flip_h = false
-	elif mouse_position.x < 0 and not animator.flip_h:
+	elif input_vector < 0 and not animator.flip_h:
 		animator.flip_h = true
 	
-	hand.rotation = mouse_position.angle()
-	if hand.scale.y == 1 and mouse_position.x < 0:
+	# hand.rotation = input_vector
+	if hand.scale.y == 1 and input_vector < 0:
 		hand.scale.y = -1
-	elif hand.scale.y == -1 and mouse_position.x > 0:
+	elif hand.scale.y == -1 and input_vector > 0:
 		hand.scale.y = 1
 	
 	if is_on_floor():
