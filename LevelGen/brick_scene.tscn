@@ -3,15 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://btbgxv7wfdf3l" path="res://LevelGen/brick.png" id="1_radn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
-size = Vector2(150, 34)
+size = Vector2(150.625, 38.7017)
 
 [node name="Area2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.587938, 0.265625)
+texture_filter = 1
+scale = Vector2(0.288, 0.13)
 texture = ExtResource("1_radn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.137159, -3.8743e-07)
+scale = Vector2(0.489467, 0.413419)
 shape = SubResource("RectangleShape2D_ph08f")
 one_way_collision = true
 

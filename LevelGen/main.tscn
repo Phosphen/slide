@@ -7,6 +7,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5o2wn")
+DISTANCE_BETWEEN_PLATFORMS = 2.0
 platform_scene = ExtResource("2_0q4u1")
 wall_scene = ExtResource("3_mbfvh")
 
@@ -18,3 +19,4 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(496, 321)
+zoom = Vector2(3, 3)
