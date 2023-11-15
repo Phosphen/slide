@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal reached_top
+const TOP_HEIGHT = 100
+
 #Data
 var is_wall_bouncing = false
 var is_jumping = false
@@ -29,6 +32,9 @@ func _process(delta):
 	else:
 		# Reset rotation and jumping state when falling down or landing
 		$AnimatedSprite2D.rotation_degrees = 0
+	
+	if ((position.y as int) % TOP_HEIGHT) == 0.0:
+		reached_top.emit()
 
 func _physics_process(delta):
 	var input_vector = Input.get_axis("move_left", "move_right")
