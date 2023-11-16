@@ -1,16 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgloopipmufx"]
 
-[ext_resource type="Texture2D" uid="uid://dajb50e0vdfqj" path="res://LevelGen/wall.png" id="1_hg5sl"]
+[ext_resource type="Texture2D" uid="uid://cer7g5wxwy4ek" path="res://Assets/world-wall.png" id="1_xvbu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkxt"]
-size = Vector2(64, 256)
+size = Vector2(31, 80)
 
 [node name="Area2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(0, -9.53674e-07)
-texture = ExtResource("1_hg5sl")
+texture = ExtResource("1_xvbu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_qjkxt")

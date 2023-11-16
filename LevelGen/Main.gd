@@ -1,6 +1,6 @@
 extends Node
 
-@export var MARGIN = 128
+@export var MARGIN = 256
 @export var MAX_OFFSET = 100
 @export var DISTANCE_BETWEEN_PLATFORMS = 10
 
