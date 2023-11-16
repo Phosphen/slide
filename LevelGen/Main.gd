@@ -1,8 +1,8 @@
 extends Node
 
 @export var MARGIN = 128
-@export var MAX_OFFSET = 50
-@export var DISTANCE_BETWEEN_PLATFORMS = 0.5
+@export var MAX_OFFSET = 100
+@export var DISTANCE_BETWEEN_PLATFORMS = 10
 
 @export var platform_scene: PackedScene
 @export var wall_scene: PackedScene
