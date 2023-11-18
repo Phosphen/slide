@@ -22,7 +22,7 @@ func _ready():
 	wall_index = 0
 	_spawn_floor()
 	_spawn_level_batch()
-	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_3)
+#	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_3)
 
 
 func _spawn_floor():
