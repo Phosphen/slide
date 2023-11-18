@@ -56,7 +56,7 @@ func _physics_process(delta):
 	
 	jump_rotation(delta)
 
-	if is_on_and_facing_wall():
+	if is_on_and_facing_wall() and is_on_floor():
 		wall_bounce(input_vector)
 		pass
 	
