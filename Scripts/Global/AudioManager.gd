@@ -1,6 +1,10 @@
 extends Node
 
 #Music
+const BEAKGROUND_MUSIC_1 : AudioStreamWAV = preload("res://Audio/Sounds/Background_Music.wav")
+const BEAKGROUND_MUSIC_2 : AudioStreamWAV = preload("res://Audio/Sounds/Background_Music_2.wav")
+const BEAKGROUND_MUSIC_3 : AudioStreamMP3 = preload("res://Audio/Sounds/Background_Music_3.mp3")
+
 
 #Sounds
 const DEATH : AudioStreamWAV = preload("res://Audio/Sounds/Death.wav")
@@ -12,6 +16,7 @@ const MENU_CLICK : AudioStreamWAV = preload("res://Audio/Sounds/Menu Click.wav")
 const MENU_HOVER : AudioStreamWAV = preload("res://Audio/Sounds/Menu Hover.wav")
 const SPLASH_CLICK : AudioStreamWAV = preload("res://Audio/Sounds/Splash Click.wav")
 const SPLASH_GLITCH : AudioStreamWAV = preload("res://Audio/Sounds/Splash Glitch.wav")
+const JUMP_WTF : AudioStreamWAV = preload("res://Audio/Sounds/Vocal_WTF.wav")
 
 #Refrences
 @onready var music_players = $Music.get_children()

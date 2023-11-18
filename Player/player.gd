@@ -6,6 +6,7 @@ const TOP_HEIGHT = 100
 #Data
 var is_wall_bouncing = false
 var is_jumping = false
+var played_rot_jump = false
 
 @export var movement_data : MovementData
 @export var stats : Stats
@@ -24,14 +25,7 @@ func _ready():
 	EventManager.update_bullet_ui.emit()
 
 func _process(delta):
-	print("x ", velocity.x)
-	if is_jumping:
-		# Rotate the character
-		print("rotating ", velocity.y)
-		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta
-	else:
-		# Reset rotation and jumping state when falling down or landing
-		$AnimatedSprite2D.rotation_degrees = 0
+
 	
 	if ((position.y as int) % TOP_HEIGHT) == 0.0:
 		reached_top.emit()
@@ -47,6 +41,8 @@ func _physics_process(delta):
 		
 	if is_on_floor() and is_jumping:
 		is_jumping = false
+		played_rot_jump = false
+
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
@@ -55,8 +51,11 @@ func _physics_process(delta):
 		jump()
 		is_jumping = true
 	
+	jump_rotation(delta)
+
 	if is_on_wall():
-		wall_bounce(input_vector)
+		# wall_bounce(input_vector)
+		pass
 	
 	move_and_slide()
 	animate(input_vector)
@@ -79,6 +78,21 @@ func jump():
 	var speed_factor = lerp(1.0, movement_data.high_jump_multiplier, abs(velocity.x) / movement_data.max_speed)
 	velocity.y = -movement_data.jump_strength * speed_factor
 	AudioManager.play_sound(AudioManager.JUMP)
+
+func jump_rotation(delta):
+	if is_jumping:
+		print("x ", velocity.x)
+		# Rotate the character
+		# print("rotating ", velocity.y)
+		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta
+		if not played_rot_jump:
+			AudioManager.play_sound(AudioManager.JUMP_WTF)
+			played_rot_jump = true
+	else:
+		# Reset rotation and jumping state when falling down or landing
+		$AnimatedSprite2D.rotation_degrees = 0
+
+
 
 func wall_bounce(input_vector):
 	velocity.x = -velocity.x + wall_bounce_strength.x * -sign(input_vector)
