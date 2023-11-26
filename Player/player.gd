@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
+signal reached_height
 signal reached_top
 const TOP_HEIGHT = 100
+
+var max_reached_height = 0.0
 
 #Data
 var is_wall_bouncing = false
@@ -27,6 +30,9 @@ func _ready():
 func _process(delta):
 	if ((position.y as int) % TOP_HEIGHT) == 0.0:
 		reached_top.emit()
+	max_reached_height = minf(position.y, max_reached_height)
+	reached_height.emit(abs(max_reached_height))
+	
 		
 func is_on_and_facing_wall():
 	return $WallChecker.is_colliding()
