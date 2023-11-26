@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvjodc5t5wxm1"]
+[gd_scene load_steps=27 format=3 uid="uid://dvjodc5t5wxm1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_dpnq5"]
 [ext_resource type="Resource" uid="uid://bvast80iosmev" path="res://Player/Player Movement Data.tres" id="2_spjjl"]
@@ -222,6 +222,9 @@ _data = {
 "RESET": SubResource("Animation_ubivd")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt8q3"]
+size = Vector2(248, 20)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
 collision_layer = 2
@@ -265,6 +268,13 @@ libraries = {
 rotation = -1.5708
 target_position = Vector2(2.08165e-12, 12)
 collision_mask = 16
+
+[node name="PlatformOverlap" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformOverlap"]
+shape = SubResource("RectangleShape2D_wt8q3")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 

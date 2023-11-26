@@ -46,9 +46,9 @@ func _physics_process(delta):
 	
 	apply_gravity(delta)
 	
-	print("Velocity X           : ", velocity.x)
-	print("is_on_wall           : ", is_on_wall()) 	
-	print("is_on_and_facing_wall: ", is_on_and_facing_wall()) 	
+	#print("Velocity X           : ", velocity.x)
+	#print("is_on_wall           : ", is_on_wall()) 	
+	#print("is_on_and_facing_wall: ", is_on_and_facing_wall()) 	
 	if is_on_floor() and is_jumping:
 		is_jumping = false
 		played_rot_jump = false
