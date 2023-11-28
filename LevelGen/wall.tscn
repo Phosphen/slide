@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dauc37uwpt3b7"]
+
+[ext_resource type="Texture2D" uid="uid://cer7g5wxwy4ek" path="res://Assets/world-wall.png" id="1_0ltbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkxt"]
+size = Vector2(64, 64)
+
+[node name="Area2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -9.53674e-07)
+texture = ExtResource("1_0ltbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qjkxt")

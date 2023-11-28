@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dajb50e0vdfqj"
-path="res://.godot/imported/wall.png-83ab825e6ece1f15545481e4414e7b9c.ctex"
+uid="uid://bowmvgu73u4r2"
+path="res://.godot/imported/world-ground.png-850e77867e4b0bf6eafa58439097b4fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LevelGen/wall.png"
-dest_files=["res://.godot/imported/wall.png-83ab825e6ece1f15545481e4414e7b9c.ctex"]
+source_file="res://Assets/world-ground.png"
+dest_files=["res://.godot/imported/world-ground.png-850e77867e4b0bf6eafa58439097b4fb.ctex"]
 
 [params]
 
