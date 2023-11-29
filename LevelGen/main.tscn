@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=9 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
 [ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
@@ -7,6 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Player/player.tscn" id="4_rsqvq"]
 [ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Score/score.tscn" id="5_ahuf4"]
 [ext_resource type="PackedScene" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
+
+[sub_resource type="GDScript" id="GDScript_2srvb"]
+resource_name = "FollowCamera"
+script/source = "extends Camera2D
+
+var player
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	player = get_node(\"/root/Main/Player\")
+	position.x = 400
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	position.y = player.position.y
+"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5o2wn")
@@ -21,11 +37,15 @@ high_jump_treshold = 200.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+update_position = false
+update_rotation = false
+update_scale = false
 
 [node name="GUI" parent="." instance=ExtResource("5_ahuf4")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(300, -20)
+script = SubResource("GDScript_2srvb")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_klvki")]
 
