@@ -6,6 +6,7 @@ const TOP_HEIGHT = 100
 #Data
 var is_wall_bouncing = false
 var is_jumping = false
+var played_rot_jump = false
 
 @export var movement_data : MovementData
 @export var stats : Stats
@@ -24,17 +25,11 @@ func _ready():
 	EventManager.update_bullet_ui.emit()
 
 func _process(delta):
-	print("x ", velocity.x)
-	if is_jumping:
-		# Rotate the character
-		print("rotating ", velocity.y)
-		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta
-	else:
-		# Reset rotation and jumping state when falling down or landing
-		$AnimatedSprite2D.rotation_degrees = 0
-	
 	if ((position.y as int) % TOP_HEIGHT) == 0.0:
 		reached_top.emit()
+		
+func is_on_and_facing_wall():
+	return $WallChecker.is_colliding()
 
 func _physics_process(delta):
 	var input_vector = Input.get_axis("move_left", "move_right")
@@ -44,19 +39,26 @@ func _physics_process(delta):
 		apply_friction(delta)
 	
 	apply_gravity(delta)
-		
+	
+	print("Velocity X           : ", velocity.x)
+	print("is_on_wall           : ", is_on_wall()) 	
+	print("is_on_and_facing_wall: ", is_on_and_facing_wall()) 	
 	if is_on_floor() and is_jumping:
 		is_jumping = false
+		played_rot_jump = false
+
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor() and abs(velocity.x) > high_jump_treshold:
-		jump()
 		is_jumping = true
 	
-	if is_on_wall():
+	jump_rotation(delta)
+
+	if is_on_and_facing_wall() and is_on_floor():
 		wall_bounce(input_vector)
+		pass
 	
 	move_and_slide()
 	animate(input_vector)
@@ -80,10 +82,25 @@ func jump():
 	velocity.y = -movement_data.jump_strength * speed_factor
 	AudioManager.play_sound(AudioManager.JUMP)
 
+func jump_rotation(delta):
+	if is_jumping:
+		print("x ", velocity.x)
+		# Rotate the character
+		# print("rotating ", velocity.y)
+		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta
+		if not played_rot_jump:
+			AudioManager.play_sound(AudioManager.JUMP_WTF)
+			played_rot_jump = true
+	else:
+		# Reset rotation and jumping state when falling down or landing
+		$AnimatedSprite2D.rotation_degrees = 0
+
+
+
 func wall_bounce(input_vector):
-	velocity.x = -velocity.x + wall_bounce_strength.x * -sign(input_vector)
+	velocity.x = -velocity.x * wall_bounce_strength.x	
 #	velocity.x = -velocity.x + wall_bounce_strength.x
-	velocity.y = velocity.y - wall_bounce_strength.y 
+#	velocity.y = velocity.y - wall_bounce_strength.y 
 
 	# Indicate that we are now bouncing off the wall
 	is_wall_bouncing = true
@@ -95,6 +112,7 @@ func small_shake():
 func animate(input_vector):
 	if input_vector != 0:
 		animator.flip_h = input_vector < 0
+		$WallChecker.rotation_degrees = 90 * -input_vector
 	
 	if is_on_floor():
 		if input_vector != 0:
@@ -103,6 +121,7 @@ func animate(input_vector):
 			animator.play("idle")
 	else:
 		animator.play("jump")
+	
 
 func _on_hurtbox_area_entered(_area):
 	hit_animator.play("Hit")

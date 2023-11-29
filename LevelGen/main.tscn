@@ -15,6 +15,8 @@ ground_scene = ExtResource("3_7rnot")
 
 [node name="Player" parent="." instance=ExtResource("4_rsqvq")]
 position = Vector2(496, 321)
+wall_bounce_strength = Vector2(1.5, 30)
+high_jump_treshold = 200.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
