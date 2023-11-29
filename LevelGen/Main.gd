@@ -1,6 +1,6 @@
 extends Node
 
-@export var MARGIN = 256
+@export var MARGIN = 240
 @export var MAX_OFFSET = 100
 @export var DISTANCE_BETWEEN_PLATFORMS = 10
 
@@ -28,10 +28,10 @@ func _ready():
 
 
 func _spawn_floor():
-	for i in range(4):
+	for i in range(5):
 		var floor_instance = ground_scene.instantiate()
 		var sprite_size = _get_sprite_size(floor_instance)
-		floor_instance.position = Vector2(MARGIN + i * sprite_size.y, screen_size.y)
+		floor_instance.position = Vector2(MARGIN + i * sprite_size.x, screen_size.y)
 		add_child(floor_instance)
 
 func _spawn_level_batch():
