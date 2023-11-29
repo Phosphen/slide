@@ -1,11 +1,13 @@
 extends Node
 
-@export var MARGIN = 256
+@export var MARGIN = 240
 @export var MAX_OFFSET = 100
 @export var DISTANCE_BETWEEN_PLATFORMS = 70
 
 @export var platform_scene: PackedScene
 @export var wall_scene: PackedScene
+@export var ground_scene: PackedScene
+
 #var platform_scene = preload("res://LevelGen/brick_scene_inv.tscn")
 
 var last_platform_position
@@ -28,11 +30,11 @@ func _ready():
 
 
 func _spawn_floor():
-	for i in range(4):
-		var floor_instance = wall_scene.instantiate()
-		floor_instance.rotation_degrees = 90.0
+	for i in range(5):
+		var floor_instance = ground_scene.instantiate()
 		var sprite_size = _get_sprite_size(floor_instance)
-		floor_instance.position = Vector2(MARGIN + i * sprite_size.y, 0)
+
+		floor_instance.position = Vector2(MARGIN + i * sprite_size.x, 0)
 		add_child(floor_instance)
 
 func _spawn_level_batch():

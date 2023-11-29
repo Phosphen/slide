@@ -1,15 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=7 format=3 uid="uid://buymrux01rude"]
+
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
-[ext_resource type="PackedScene" uid="uid://bw16x5t43kkhp" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
-[ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/wall_scene.tscn" id="3_mbfvh"]
+[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
+[ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/ground.tscn" id="3_7rnot"]
+[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="4_0acmh"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Player/player.tscn" id="4_rsqvq"]
 [ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Score/score.tscn" id="5_ahuf4"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
+
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5o2wn")
 platform_scene = ExtResource("2_0q4u1")
-wall_scene = ExtResource("3_mbfvh")
+wall_scene = ExtResource("4_0acmh")
+ground_scene = ExtResource("3_7rnot")
 
 [node name="Player" parent="." instance=ExtResource("4_rsqvq")]
 position = Vector2(496, 2.08165e-12)
@@ -23,6 +28,8 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(496, 2.08165e-12)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("6_klvki")]
 
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
 [connection signal="reached_top" from="Player" to="." method="_on_player_reached_top"]
