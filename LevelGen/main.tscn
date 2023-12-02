@@ -12,15 +12,12 @@
 resource_name = "FollowCamera"
 script/source = "extends Camera2D
 
-var player
-# Called when the node enters the scene tree for the first time.
+@onready var player = $/root/Main/Player
+
 func _ready():
-	player = get_node(\"/root/Main/Player\")
 	position.x = 400
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	position.y = player.position.y
 "
 
