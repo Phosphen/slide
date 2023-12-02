@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://do2c1xdpf2kno"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/splash_screen.gd" id="1_4i2yg"]
-[ext_resource type="Texture2D" uid="uid://15s8li6lqtbt" path="res://Textures/Splash Screens/photo_5192813914579118848_y.jpg" id="1_ky7kw"]
+[ext_resource type="Texture2D" uid="uid://15s8li6lqtbt" path="res://Assets/Menu/photo_5192813914579118848_y.jpg" id="1_ky7kw"]
 
 [node name="splash_screen" type="Control"]
 layout_mode = 3
