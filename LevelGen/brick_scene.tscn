@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdejim20utbi"]
 
-[ext_resource type="Texture2D" uid="uid://dfy3a0skuifcc" path="res://Assets/world-platform.png" id="1_6q6fd"]
 [ext_resource type="Script" path="res://LevelGen/brick_scene.gd" id="1_gt6rh"]
+[ext_resource type="Texture2D" uid="uid://dfy3a0skuifcc" path="res://Assets/World/world-platform.png" id="2_w8340"]
 [ext_resource type="Script" path="res://LevelGen/timer.gd" id="3_soq3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
@@ -12,14 +12,14 @@ size = Vector2(76, 12)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 gravity_scale = 0.1
-contact_monitor = true
 sleeping = true
 freeze = true
+contact_monitor = true
 script = ExtResource("1_gt6rh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_6q6fd")
+texture = ExtResource("2_w8340")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.76837e-07)
