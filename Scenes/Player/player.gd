@@ -122,6 +122,8 @@ func animate(input_vector):
 	if is_on_floor():
 		if input_vector != 0:
 			animator.play("run")
+		elif !velocity.is_zero_approx():
+			animator.play("slide")
 		else:
 			animator.play("idle")
 	else:

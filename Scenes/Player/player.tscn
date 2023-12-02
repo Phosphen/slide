@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvjodc5t5wxm1"]
+[gd_scene load_steps=26 format=3 uid="uid://dvjodc5t5wxm1"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_dpnq5"]
 [ext_resource type="Resource" uid="uid://bvast80iosmev" path="res://Scenes/Player/Player Movement Data.tres" id="2_spjjl"]
@@ -38,6 +38,10 @@ region = Rect2(40, 20, 20, 20)
 atlas = ExtResource("5_lax0g")
 region = Rect2(60, 20, 20, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6fjr"]
+atlas = ExtResource("5_lax0g")
+region = Rect2(0, 60, 20, 20)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfxao"]
 animations = [{
 "frames": [{
@@ -74,6 +78,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6fjr")
+}],
+"loop": true,
+"name": &"slide",
 "speed": 5.0
 }]
 
@@ -198,7 +210,7 @@ wall_bounce_strength = Vector2(1.1, 30)
 texture_filter = 1
 material = SubResource("ShaderMaterial_nbr8w")
 sprite_frames = SubResource("SpriteFrames_sfxao")
-animation = &"run"
+animation = &"slide"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
