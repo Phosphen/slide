@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
 [ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
-[ext_resource type="PackedScene" path="res://LevelGen/ground.tscn" id="3_7rnot"]
-[ext_resource type="PackedScene" path="res://LevelGen/wall.tscn" id="4_0acmh"]
-[ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Player/player.tscn" id="4_rsqvq"]
-[ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Score/score.tscn" id="5_ahuf4"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
+[ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/ground.tscn" id="3_7rnot"]
+[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="4_0acmh"]
+[ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
+[ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Scenes/Score/score.tscn" id="5_ahuf4"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
 
 [sub_resource type="GDScript" id="GDScript_2srvb"]
 resource_name = "FollowCamera"
