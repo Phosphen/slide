@@ -9,7 +9,7 @@ on:
       - '*'
 
 env:
-  GODOT_VERSION: 4.1.2
+  GODOT_VERSION: 4.2
   EXPORT_NAME: godot-ci-build
 
 jobs:
@@ -65,7 +65,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.1.2
+      image: barichello/godot-ci:${GODOT_VERSION}
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
