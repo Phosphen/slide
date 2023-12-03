@@ -32,10 +32,11 @@ func _ready():
 func _spawn_floor():
 	for i in range(5):
 		var floor_instance = ground_scene.instantiate()
+		floor_instance.set_name("Ground")
 		var sprite_size = _get_sprite_size(floor_instance)
 
 		floor_instance.position = Vector2(MARGIN + i * sprite_size.x, 0)
-		add_child(floor_instance)
+		add_child(floor_instance, true)
 
 func _spawn_level_batch():
 	for i in range(10):
@@ -46,9 +47,10 @@ func _spawn_level_batch():
 
 func _spawn_platform(index):
 	var platform = platform_scene.instantiate()
+	platform.set_name("Platform")
 	var sprite_size = _get_sprite_size(platform)
 
-	add_child(platform)
+	add_child(platform, true)
 
 	var from = last_platform_position.x - sprite_size.x * 0.5 - MAX_OFFSET
 	var to = last_platform_position.x + sprite_size.x * 0.5 + MAX_OFFSET
@@ -68,6 +70,8 @@ func _spawn_platform(index):
 func _spawn_walls(index):
 	var wallLeft = wall_scene.instantiate()
 	var wallRight = wall_scene.instantiate()
+	wallLeft.set_name("Wall")
+	wallRight.set_name("Wall")
 	var sprite_size = _get_sprite_size(wallLeft)
 	
 	wall_width = sprite_size.x
@@ -75,8 +79,8 @@ func _spawn_walls(index):
 	# Y component is aka width in this context, because the sprite is rotated
 	var posLeft = Vector2(MARGIN, -1 * index * sprite_size.y)
 	var posRight = Vector2(screen_width - MARGIN, -1 * index * sprite_size.y)
-	add_child(wallLeft)
-	add_child(wallRight)
+	add_child(wallLeft, true)
+	add_child(wallRight, true)
 	wallLeft.position = posLeft
 	wallRight.position = posRight
 
