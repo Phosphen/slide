@@ -20,6 +20,7 @@ var played_rot_jump = false
 #Refrences
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit_animator : AnimationPlayer = $HitAnimationPlayer
+@onready var dust_particles : GPUParticles2D = $DustParticles
 
 @export var camera : Camera2D
 
@@ -32,6 +33,10 @@ func _process(delta):
 		reached_top.emit()
 	max_reached_height = minf(position.y, max_reached_height)
 	reached_height.emit(abs(max_reached_height))
+	if is_on_floor() && velocity.x != 0.0:
+		dust_particles.emitting = true
+	else:
+		dust_particles.emitting = false
 	
 		
 func is_on_and_facing_wall():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvjodc5t5wxm1"]
+[gd_scene load_steps=31 format=3 uid="uid://dvjodc5t5wxm1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_dpnq5"]
 [ext_resource type="Resource" uid="uid://bvast80iosmev" path="res://Player/Player Movement Data.tres" id="2_spjjl"]
@@ -225,6 +225,33 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt8q3"]
 size = Vector2(379, 20)
 
+[sub_resource type="Curve" id="Curve_o2xo5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f5af8"]
+curve = SubResource("Curve_o2xo5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vq8ew"]
+emission_shape = 1
+emission_sphere_radius = 1.56
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = 118.96
+angular_velocity_max = 118.96
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 1.9
+scale_curve = SubResource("CurveTexture_f5af8")
+color = Color(0.509804, 0.254902, 0.0980392, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwc3r"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
 collision_layer = 2
@@ -276,6 +303,22 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformOverlap"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_wt8q3")
+
+[node name="DustParticles" type="GPUParticles2D" parent="."]
+z_index = 10
+position = Vector2(0, 9)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_vq8ew")
+lifetime = 0.15
+
+[node name="DustParticlesLand" type="GPUParticles2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(0, 9)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_pwc3r")
+lifetime = 0.15
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
