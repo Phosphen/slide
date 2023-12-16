@@ -2,20 +2,25 @@ extends CharacterBody2D
 
 signal reached_height
 signal reached_top
+signal falling_to_death
 const TOP_HEIGHT = 100
 
 var max_reached_height = 0.0
+
 
 #Data
 var is_wall_bouncing = false
 var is_jumping = false
 var played_rot_jump = false
+var fall_time = 0.0  # Time the player has been falling
 
 @export var movement_data : MovementData
 @export var stats : Stats
 @export var wall_bounce_strength = Vector2(30, 30) 
 @export var rotation_speed = 360
 @export var high_jump_treshold = 300.0
+@export var max_fall_time = 2.0  # Maximum time player can fall before game over
+
 
 #Refrences
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
@@ -36,6 +41,19 @@ func _process(delta):
 		
 func is_on_and_facing_wall():
 	return $WallChecker.is_colliding()
+	
+func is_falling() -> bool:
+	# Check if the player is moving downwards
+	if velocity.y > 0:
+		# Check if the player is not on the ground
+		if not is_on_floor():
+			return true
+	return false
+	
+func trigger_game_over():
+	falling_to_death.emit()
+	# Game over logic here, like showing a game over screen or resetting the level
+	print("Game Over!")
 
 func _physics_process(delta):
 	var input_vector = Input.get_axis("move_left", "move_right")
@@ -67,6 +85,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	animate(input_vector)
+	
+	if is_falling():  # You need to define this function based on your game logic
+		fall_time += delta
+		if fall_time > max_fall_time:
+			trigger_game_over()
+	else:
+		fall_time = 0.0
 		
 
 func apply_acceleration(input_vector, delta):
@@ -89,7 +114,8 @@ func jump():
 
 func jump_rotation(delta):
 	if is_jumping:
-		print("x ", velocity.x)
+#		print("x ", velocity.x)
+#		print("y ", velocity.x)
 		# Rotate the character
 		# print("rotating ", velocity.y)
 		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta

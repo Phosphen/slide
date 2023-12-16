@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cer7g5wxwy4ek" path="res://Assets/World/world-wall.png" id="1_q65dn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkxt"]
-size = Vector2(64, 64)
+size = Vector2(66, 64)
 
-[node name="Area2D" type="StaticBody2D"]
+[node name="Wall" type="StaticBody2D"]
 collision_layer = 17
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
