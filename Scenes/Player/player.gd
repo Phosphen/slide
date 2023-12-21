@@ -20,7 +20,7 @@ var fall_time = 0.0  # Time the player has been falling
 @export var rotation_speed = 360
 @export var high_jump_treshold = 300.0
 @export var max_fall_time = 2.0  # Maximum time player can fall before game over
-
+@export var max_fall_speed: float = 600.0  # Max speed in any direction
 
 #Refrences
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
@@ -64,24 +64,31 @@ func _physics_process(delta):
 	
 	apply_gravity(delta)
 	
-	#print("Velocity X           : ", velocity.x)
-	#print("is_on_wall           : ", is_on_wall()) 	
-	#print("is_on_and_facing_wall: ", is_on_and_facing_wall()) 	
 	if is_on_floor() and is_jumping:
 		is_jumping = false
 		played_rot_jump = false
 
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_special_wall("jump")):
 		jump()
 		if abs(velocity.x) > high_jump_treshold:
 			is_jumping = true
 	
 	jump_rotation(delta)
-
-	if is_on_and_facing_wall() and is_on_floor():
+   
+	# Flip           false   true
+	# Direction      left, : right
+	# InputVecotr     -1   :   +1
+	var current_player_direction = -1 if animator.flip_h == true else 1
+	if is_on_and_facing_wall() and is_on_floor() and input_vector != 0 and input_vector != current_player_direction:
 		wall_bounce(input_vector)
-		pass
+	
+	if is_on_special_wall("fly") and Input.is_action_pressed("jump"):
+		velocity.y -= wall_bounce_strength.y
+	
+	# Clamp the falling speed
+	if velocity.y > max_fall_speed:
+		velocity.y = max_fall_speed
 	
 	move_and_slide()
 	animate(input_vector)
@@ -93,7 +100,6 @@ func _physics_process(delta):
 	else:
 		fall_time = 0.0
 		
-
 func apply_acceleration(input_vector, delta):
 	velocity.x = lerp(velocity.x, movement_data.max_speed * input_vector, movement_data.acceleration * delta)
 
@@ -114,10 +120,6 @@ func jump():
 
 func jump_rotation(delta):
 	if is_jumping:
-#		print("x ", velocity.x)
-#		print("y ", velocity.x)
-		# Rotate the character
-		# print("rotating ", velocity.y)
 		$AnimatedSprite2D.rotation_degrees += rotation_speed * delta
 		if not played_rot_jump:
 			AudioManager.play_sound(AudioManager.JUMP_WTF)
@@ -136,6 +138,20 @@ func wall_bounce(input_vector):
 	# Indicate that we are now bouncing off the wall
 	is_wall_bouncing = true
 
+func is_on_special_wall(wall_type):
+	var colliding = $WallChecker.is_colliding()
+	var collidingOtherSide = $WallCheckerBack.is_colliding()
+	
+	if colliding:
+		var collider = $WallChecker.get_collider()
+		if collider.has_meta("wall_type") and collider.get_meta("wall_type") == wall_type:
+			return true
+	if collidingOtherSide:
+		var colliderOtherSide = $WallCheckerBack.get_collider()
+		if colliderOtherSide.has_meta("wall_type") and colliderOtherSide.get_meta("wall_type") == wall_type:
+			return true
+
+	return false
 
 func small_shake():
 	camera.small_shake()

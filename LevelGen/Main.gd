@@ -8,7 +8,12 @@ extends Node
 @export var wall_scene: PackedScene
 @export var ground_scene: PackedScene
 
-#var platform_scene = preload("res://LevelGen/brick_scene_inv.tscn")
+@export var normal_wall_weight = 70  # 70% chance to be a normal wall
+@export var jump_wall_weight = 15    # 15% chance to be a jump wall
+@export var fly_wall_weight = 15     # 15% chance to be a fly wall
+@export var wall_min_batch_size = 3  
+var last_wall_type = ""
+var current_wall_batch_count = 0
 
 var last_platform_position
 var screen_size
@@ -65,13 +70,13 @@ func _spawn_platform(index):
 
 	platform.position = Vector2(x_pos, y_pos)
 	last_platform_position = platform.position
-#	print("_spawn_platform ", x_pos , " ", y_pos)
 
 func _spawn_walls(index):
-	var wallLeft = wall_scene.instantiate()
-	var wallRight = wall_scene.instantiate()
+	var wallLeft = get_random_wall()
+	var wallRight = get_random_wall()
 	wallLeft.set_name("Wall")
 	wallRight.set_name("Wall")
+		
 	var sprite_size = _get_sprite_size(wallLeft)
 	
 	wall_width = sprite_size.x
@@ -84,6 +89,50 @@ func _spawn_walls(index):
 	wallLeft.position = posLeft
 	wallRight.position = posRight
 
+func create_normal_wall():
+	current_wall_batch_count += 1
+	var wall = wall_scene.instantiate()
+	wall.set_meta("wall_type", "normal") 
+	return wall
+
+func create_jump_wall():
+	current_wall_batch_count += 1
+	var jump_scene = wall_scene.instantiate()
+	jump_scene.get_node("Sprite2D").modulate = Color(0.5, 0.5, 1, 1)
+	jump_scene.set_meta("wall_type", "jump") 
+	return jump_scene
+
+func create_fly_wall():
+	current_wall_batch_count += 1
+	var fly_scene = wall_scene.instantiate()
+	fly_scene.get_node("Sprite2D").modulate = Color(0.2, 0.27, 1.0, 1)
+	fly_scene.set_meta("wall_type", "fly") 
+	return fly_scene
+	
+func get_random_wall():
+	if current_wall_batch_count >= wall_min_batch_size:
+		last_wall_type = ""
+		current_wall_batch_count = 0
+
+	if last_wall_type != "":
+		if last_wall_type == "jump":
+			return create_jump_wall()
+		elif last_wall_type == "fly":
+			return create_fly_wall()
+		elif last_wall_type == "normal":
+			return create_normal_wall()
+			
+	var rand_value = randi() % 100  # Get a random value between 0 and 99
+	if rand_value < normal_wall_weight:
+		last_wall_type = "normal"
+		return create_normal_wall()
+	elif rand_value < normal_wall_weight + jump_wall_weight:
+		last_wall_type = "jump"
+		return create_jump_wall()
+	else:
+		last_wall_type = "fly"
+		return create_fly_wall()
+	
 func _get_sprite_size(node_with_sprite):
 	var sprite_node = node_with_sprite.get_child(0)
 	var sprite_w = sprite_node.texture.get_width()

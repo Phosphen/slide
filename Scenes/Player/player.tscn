@@ -228,6 +228,11 @@ libraries = {
 }
 autoplay = "Normal"
 
+[node name="WallCheckerBack" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(2.08165e-12, 13)
+collision_mask = 16
+
 [node name="WallChecker" type="RayCast2D" parent="."]
 rotation = -1.5708
 target_position = Vector2(2.08165e-12, 12)
