@@ -1,7 +1,7 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1701644518838,
+    "generatedTime": 1703200477276,
     "data": [
         {
             "type": "file",
@@ -31,7 +31,7 @@
             "type": "file",
             "name": "index.html",
             "size": 6582,
-            "hash": "c2d56a6ed2eafa2effad37f4ebf6d814bed9a0c60b74780c77fc73a59cdf18a1"
+            "hash": "503061592945a487157beb42f43595b9c65d9e9e92603cb180172528785a5ba8"
         },
         {
             "type": "file",
@@ -42,14 +42,14 @@
         {
             "type": "file",
             "name": "index.js",
-            "size": 448719,
-            "hash": "5f347a772209d388890048ac2d8828ded2d6df06c20b4de9f64d57aff492378e"
+            "size": 452313,
+            "hash": "45bbfbcbd96683b81829ecb706d2f945326fdf41b34e0112ee089541782d92cb"
         },
         {
             "type": "file",
             "name": "index.pck",
-            "size": 5487376,
-            "hash": "cc94e1cd2914365e4713250b8ebdc26f96febedd4c557e76a6fa7054e935c11f"
+            "size": 5490160,
+            "hash": "8e7da12d930532c0ad3e3016d531b7236c5c24529f626c11c9a9c7a624c2f749"
         },
         {
             "type": "file",
@@ -60,14 +60,14 @@
         {
             "type": "file",
             "name": "index.wasm",
-            "size": 27907743,
-            "hash": "3f2c45b084c00292ffdac3c8094e15d90f6a9b2b82f30804ec28f2d09405e5d1"
+            "size": 35410474,
+            "hash": "f5082a4e3d191de748c21ba54b8490614c4ca4a092c6db3f35a40e5183d459bd"
         },
         {
             "type": "file",
             "name": "index.worker.js",
-            "size": 6620,
-            "hash": "039ad9862b66b26cc9cfd502089906bc968bbff61de25a7e6880930a06245fd0"
+            "size": 5793,
+            "hash": "3b3f837b25b53b45fc4e17163c424439f76bb602f8a4d7f4b2c76bc780a7dbff"
         }
     ]
 }
