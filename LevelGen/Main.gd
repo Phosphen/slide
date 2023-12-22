@@ -15,6 +15,9 @@ extends Node
 var last_wall_type = ""
 var current_wall_batch_count = 0
 
+# Probability of spawning a double-width platform
+var double_width_probability = 0.2  # 20% chance
+
 var last_platform_position
 var screen_size
 var screen_width
@@ -29,7 +32,7 @@ func _ready():
 	screen_width = screen_size.x  # Adjust based on your game's resolution
 	last_platform_position = Vector2(screen_width * 0.5, -DISTANCE_BETWEEN_PLATFORMS)
 	wall_index = 0
-	_spawn_floor()
+		_spawn_floor()
 	_spawn_level_batch()
 #	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_3)
 
@@ -55,11 +58,21 @@ func _spawn_platform(index):
 	platform.set_name("Platform")
 	var sprite_size = _get_sprite_size(platform)
 
+	# Determine if this platform should be double-width
+	var is_double_width = randf() < double_width_probability
+	if is_double_width:
+		# Adjust the sprite size for double width (e.g., double the x size)
+		sprite_size.x *= 2
+		# If the platform has a sprite node, adjust its scale or texture size
+		var sprite = platform.get_node("Sprite2D")
+		if sprite:
+			sprite.scale.x *= 2
+
 	add_child(platform, true)
 
 	var from = last_platform_position.x - sprite_size.x * 0.5 - MAX_OFFSET
 	var to = last_platform_position.x + sprite_size.x * 0.5 + MAX_OFFSET
-	# make sure there are no overlaps with the walls
+# make sure there are no overlaps with the walls
 	from = max(from - sprite_size.x * 0.5, MARGIN + wall_width * 0.5 + sprite_size.x * 0.5)
 	to = min(to + sprite_size.x * 0.5, screen_width - MARGIN - wall_width * 0.5 - sprite_size.x * 0.5)
 	

@@ -25,9 +25,16 @@ func _physics_process(delta):
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5o2wn")
+MARGIN = null
+MAX_OFFSET = null
+DISTANCE_BETWEEN_PLATFORMS = null
 platform_scene = ExtResource("2_0q4u1")
 wall_scene = ExtResource("4_0acmh")
 ground_scene = ExtResource("3_7rnot")
+normal_wall_weight = null
+jump_wall_weight = null
+fly_wall_weight = null
+wall_min_batch_size = null
 
 [node name="Player" parent="." instance=ExtResource("4_rsqvq")]
 position = Vector2(300, -20)
