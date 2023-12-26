@@ -26,6 +26,8 @@ var wall_index
 
 var wall_width:float = 0.0
 
+var ground_instances = []
+
 func _ready():
 #	screen_size = get_viewport().size
 	screen_size = Vector2(800, 600)
@@ -36,7 +38,6 @@ func _ready():
 	_spawn_level_batch()
 #	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_3)
 
-
 func _spawn_floor():
 	for i in range(5):
 		var floor_instance = ground_scene.instantiate()
@@ -45,6 +46,7 @@ func _spawn_floor():
 
 		floor_instance.position = Vector2(MARGIN + i * sprite_size.x, 0)
 		add_child(floor_instance, true)
+		ground_instances.append(floor_instance)
 
 func _spawn_level_batch():
 	for i in range(10):
@@ -53,7 +55,7 @@ func _spawn_level_batch():
 		_spawn_platform(i)
 	wall_index += 10
 
-func _spawn_platform(index):
+func _spawn_platform(_index):
 	var platform = platform_scene.instantiate()
 	platform.set_name("Platform")
 	var sprite_size = _get_sprite_size(platform)
@@ -67,12 +69,15 @@ func _spawn_platform(index):
 		var sprite = platform.get_node("Sprite2D")
 		if sprite:
 			sprite.scale.x *= 2
+		var collisionShape2D = platform.get_node("CollisionShape2D")
+		if collisionShape2D:
+			collisionShape2D.scale.x *= 2
 
 	add_child(platform, true)
 
 	var from = last_platform_position.x - sprite_size.x * 0.5 - MAX_OFFSET
 	var to = last_platform_position.x + sprite_size.x * 0.5 + MAX_OFFSET
-# make sure there are no overlaps with the walls
+	# make sure there are no overlaps with the walls
 	from = max(from - sprite_size.x * 0.5, MARGIN + wall_width * 0.5 + sprite_size.x * 0.5)
 	to = min(to + sprite_size.x * 0.5, screen_width - MARGIN - wall_width * 0.5 - sprite_size.x * 0.5)
 	
@@ -153,4 +158,10 @@ func _get_sprite_size(node_with_sprite):
 	return Vector2(sprite_w, sprite_h)
 
 func _on_player_reached_top():
+	print("On player reached top")
 	_spawn_level_batch()
+
+func _on_player_falling_to_death():
+	for floor_instance in ground_instances:
+		floor_instance.sleeping = false
+		floor_instance.freeze = false
