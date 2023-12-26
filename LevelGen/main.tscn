@@ -29,10 +29,11 @@ platform_scene = ExtResource("2_0q4u1")
 wall_scene = ExtResource("4_0acmh")
 ground_scene = ExtResource("3_7rnot")
 
-[node name="Player" parent="." instance=ExtResource("4_rsqvq")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_rsqvq")]
 position = Vector2(300, -20)
 wall_bounce_strength = Vector2(1.5, 30)
 high_jump_treshold = 200.0
+camera = NodePath("../Camera2D")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -55,5 +56,7 @@ script = ExtResource("8_4y185")
 visible = false
 custom_minimum_size = Vector2(439, 320)
 
+[connection signal="falling_to_death" from="Player" to="." method="_on_player_falling_to_death"]
 [connection signal="falling_to_death" from="Player" to="UI" method="_on_player_falling_to_death"]
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
+[connection signal="reached_top" from="Player" to="." method="_on_player_reached_top"]
