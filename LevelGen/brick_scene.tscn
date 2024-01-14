@@ -8,7 +8,7 @@
 size = Vector2(80, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o11t"]
-size = Vector2(76, 12)
+size = Vector2(498, 12)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 gravity_scale = 0.1
