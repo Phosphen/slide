@@ -27,6 +27,7 @@ var wall_index
 var wall_width:float = 0.0
 
 var ground_instances = []
+var wall_instances = []
 
 func _ready():
 #	screen_size = get_viewport().size
@@ -54,6 +55,14 @@ func _spawn_level_batch():
 	for i in range(20):
 		_spawn_platform(i)
 	wall_index += 10
+
+func _free_lowest_walls():
+	if (wall_index < 30):
+		return
+	var wall1 = wall_instances.pop_at(0)
+	var wall2 = wall_instances.pop_at(0)
+	wall1.queue_free()
+	wall2.queue_free()
 
 func _spawn_platform(_index):
 	var platform = platform_scene.instantiate()
@@ -106,6 +115,9 @@ func _spawn_walls(index):
 	add_child(wallRight, true)
 	wallLeft.position = posLeft
 	wallRight.position = posRight
+	wall_instances.append(wallLeft)
+	wall_instances.append(wallRight)
+	
 
 func create_normal_wall():
 	current_wall_batch_count += 1
@@ -159,6 +171,7 @@ func _get_sprite_size(node_with_sprite):
 
 func _on_player_reached_top():
 	print("On player reached top")
+	_free_lowest_walls()
 	_spawn_level_batch()
 
 func _on_player_falling_to_death():
