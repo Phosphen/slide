@@ -35,8 +35,8 @@ func _ready():
 	screen_width = screen_size.x  # Adjust based on your game's resolution
 	last_platform_position = Vector2(screen_width * 0.5, -DISTANCE_BETWEEN_PLATFORMS)
 	wall_index = 0
-	_spawn_floor()
-	_spawn_level_batch()
+	#_spawn_floor()
+	#_spawn_level_batch()
 #	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_3)
 
 func _spawn_floor():
@@ -171,8 +171,8 @@ func _get_sprite_size(node_with_sprite):
 
 func _on_player_reached_top():
 	print("On player reached top")
-	_free_lowest_walls()
-	_spawn_level_batch()
+	#_free_lowest_walls()
+	#_spawn_level_batch()
 
 func _on_player_falling_to_death():
 	for floor_instance in ground_instances:
