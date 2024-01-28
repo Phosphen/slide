@@ -2,11 +2,8 @@ extends TileMap
 
 var wall_index = 0
 
-func _ready():
-	pass
-	#_spawn_next_batch()
-	#_spawn_level_batch()
-	#_spawn_level_batch()
+func _ready():	
+	_spawn_next_batch()
 
 func _spawn_next_batch():
 	for i in range(10):

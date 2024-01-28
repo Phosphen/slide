@@ -4,8 +4,7 @@ var platform_index = 0
 const distance_between_platforms = 6
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#_spawn_next_batch()
+	_spawn_next_batch()
 
 func _spawn_next_batch():
 	for i in range(20):

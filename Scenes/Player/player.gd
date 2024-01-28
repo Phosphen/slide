@@ -34,18 +34,13 @@ func _ready():
 	EventManager.update_bullet_ui.emit()
 
 func _process(delta):
-	if position.y < max_reached_height:
-		max_reached_height = position.y
-
 	# Calculate the height difference since the last trigger
-	var height_difference = max_reached_height - last_trigger_height
-
-	if height_difference <= -TOP_HEIGHT:
+	var height_difference = abs(max_reached_height - position.y)
+	if height_difference <= TOP_HEIGHT:
 		print("last_trigger_height: position ", position.y, " max reached height ", max_reached_height)
 		reached_top.emit()
-		last_trigger_height = max_reached_height
-	
-		
+		last_trigger_height = position.y
+
 func is_on_and_facing_wall():
 	return $WallChecker.is_colliding()
 	
