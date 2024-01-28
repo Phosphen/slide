@@ -191,3 +191,5 @@ custom_minimum_size = Vector2(439, 320)
 [connection signal="falling_to_death" from="Player" to="UI" method="_on_player_falling_to_death"]
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
 [connection signal="reached_top" from="Player" to="." method="_on_player_reached_top"]
+[connection signal="reached_top" from="Player" to="TileMap64" method="_on_player_reached_top"]
+[connection signal="reached_top" from="Player" to="TileMap16" method="_on_player_reached_top"]
