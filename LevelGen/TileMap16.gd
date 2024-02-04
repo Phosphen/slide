@@ -15,12 +15,9 @@ func _spawn_next_batch():
 func _spawn_platform(index):
 	var randomX = randi_range(7, 22)
 	index *= distance_between_platforms
-	set_cell(0, Vector2i(randomX - 2, index * -1), 0, Vector2i(64, 0))
-	set_cell(0, Vector2i(randomX - 1, index * -1), 0, Vector2i(65, 0))
-	set_cell(0, Vector2i(randomX - 0, index * -1), 0, Vector2i(66, 0))
-	set_cell(0, Vector2i(randomX + 1, index * -1), 0, Vector2i(67, 0))
-	set_cell(0, Vector2i(randomX + 2, index * -1), 0, Vector2i(68, 0))
+	set_cell(0, Vector2i(randomX - 0, index * -1), 2, Vector2i(0, 0), 2)
 
 func _on_player_reached_top():
 	# todo: clear lower batch
 	_spawn_next_batch()
+	

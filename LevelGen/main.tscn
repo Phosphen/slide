@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=22 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
-[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
+[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/Platforms/brick_scene.tscn" id="2_0q4u1"]
 [ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/ground.tscn" id="3_7rnot"]
 [ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="4_0acmh"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://LevelGen/TileMap64.gd" id="6_b86c7"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
 [ext_resource type="Script" path="res://LevelGen/TileMap16.gd" id="7_nkjbs"]
+[ext_resource type="PackedScene" uid="uid://ch4swdhnac0ml" path="res://LevelGen/Platforms/static_platform.tscn" id="7_w3oat"]
 [ext_resource type="Script" path="res://LevelGen/UI.gd" id="8_4y185"]
 [ext_resource type="PackedScene" uid="uid://c7xdjuymk7qa3" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
 
@@ -93,38 +94,18 @@ sources/2 = SubResource("TileSetAtlasSource_d24xf")
 pattern_0 = SubResource("TileMapPattern_hjs2i")
 pattern_1 = SubResource("TileMapPattern_moafg")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2y45"]
-resource_name = "World16"
-texture = ExtResource("5_biry0")
-64:0/0 = 0
-64:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-64:0/0/physics_layer_0/angular_velocity = 0.0
-64:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -7, -5.472, -8, 8, -8, 8, 8, -1.824, 8, -6, 6, -8, 3.78831, -8, -5.19139)
-64:0/0/physics_layer_0/polygon_0/one_way = true
-65:0/0 = 0
-65:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-65:0/0/physics_layer_0/angular_velocity = 0.0
-65:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-65:0/0/physics_layer_0/polygon_0/one_way = true
-66:0/0 = 0
-66:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-66:0/0/physics_layer_0/angular_velocity = 0.0
-66:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-66:0/0/physics_layer_0/polygon_0/one_way = true
-67:0/0 = 0
-67:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-67:0/0/physics_layer_0/angular_velocity = 0.0
-67:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-67:0/0/physics_layer_0/polygon_0/one_way = true
-68:0/0 = 0
-68:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-68:0/0/physics_layer_0/angular_velocity = 0.0
-68:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(7, -7, 5.472, -8, -8, -8, -8, 8, 1.824, 8, 6, 6, 8, 3.78831, 8, -5.19139)
-68:0/0/physics_layer_0/polygon_0/one_way = true
+[sub_resource type="TileMapPattern" id="TileMapPattern_3wg1g"]
+tile_data = PackedInt32Array(0, 4194304, 0, 1, 4259840, 0, 2, 4325376, 0, 3, 4390912, 0, 4, 4456448, 0)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_nl0n2"]
+resource_name = "Platforn"
+scenes/1/scene = ExtResource("7_w3oat")
+scenes/2/scene = ExtResource("2_0q4u1")
 
 [sub_resource type="TileSet" id="TileSet_3oju0"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_q2y45")
+sources/2 = SubResource("TileSetScenesCollectionSource_nl0n2")
+pattern_0 = SubResource("TileMapPattern_3wg1g")
 
 [sub_resource type="GDScript" id="GDScript_2srvb"]
 resource_name = "FollowCamera"
@@ -157,7 +138,7 @@ script = ExtResource("6_b86c7")
 texture_filter = 1
 tile_set = SubResource("TileSet_3oju0")
 format = 2
-layer_0/tile_data = PackedInt32Array(786445, 4194304, 0, 786446, 4259840, 0, 786447, 4325376, 0, 786448, 4390912, 0, 786449, 4456448, 0)
+layer_0/tile_data = PackedInt32Array(851983, 2, 65536)
 script = ExtResource("7_nkjbs")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_rsqvq")]

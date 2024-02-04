@@ -50,8 +50,8 @@ func _spawn_floor():
 		ground_instances.append(floor_instance)
 
 func _spawn_level_batch():
-	for i in range(10):
-		_spawn_walls(wall_index + i)
+	#for i in range(10):
+		#_spawn_walls(wall_index + i)
 	for i in range(20):
 		_spawn_platform(i)
 	wall_index += 10
