@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdejim20utbi"]
 
-[ext_resource type="Script" path="res://LevelGen/Platforms/brick_scene.gd" id="1_6d1xi"]
-[ext_resource type="Script" path="res://LevelGen/timer.gd" id="2_qpq7c"]
-[ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="3_jisup"]
+[ext_resource type="Script" path="res://LevelGen/Platforms/default_platform.gd" id="1_om2p6"]
+[ext_resource type="Script" path="res://LevelGen/timer.gd" id="2_ioe3t"]
+[ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="3_4hun2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph08f"]
 size = Vector2(80, 16)
@@ -15,7 +15,7 @@ tile_data = PackedInt32Array(0, 4194304, 0, 1, 4259840, 0, 2, 4325376, 0, 3, 439
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2y45"]
 resource_name = "World16"
-texture = ExtResource("3_jisup")
+texture = ExtResource("3_4hun2")
 64:0/0 = 0
 65:0/0 = 0
 66:0/0 = 0
@@ -31,7 +31,7 @@ gravity_scale = 0.1
 sleeping = true
 freeze = true
 contact_monitor = true
-script = ExtResource("1_6d1xi")
+script = ExtResource("1_om2p6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.76837e-07)
@@ -41,7 +41,7 @@ one_way_collision = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-script = ExtResource("2_qpq7c")
+script = ExtResource("2_ioe3t")
 
 [node name="PlayerOverlap" type="Area2D" parent="."]
 collision_layer = 2
