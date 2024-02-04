@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=23 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
 [ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/Platforms/default_platform.tscn" id="2_0q4u1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ch4swdhnac0ml" path="res://LevelGen/Platforms/static_platform.tscn" id="7_w3oat"]
 [ext_resource type="Script" path="res://LevelGen/UI.gd" id="8_4y185"]
 [ext_resource type="PackedScene" uid="uid://c7xdjuymk7qa3" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
+[ext_resource type="PackedScene" uid="uid://6bradx7kcacn" path="res://LevelGen/Platforms/large_platform.tscn" id="8_ev0p5"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hjs2i"]
 tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 131072, 0, 3, 196608, 0, 4, 262144, 0)
@@ -101,6 +102,7 @@ tile_data = PackedInt32Array(0, 4194304, 0, 1, 4259840, 0, 2, 4325376, 0, 3, 439
 resource_name = "Platforn"
 scenes/1/scene = ExtResource("7_w3oat")
 scenes/2/scene = ExtResource("2_0q4u1")
+scenes/4/scene = ExtResource("8_ev0p5")
 
 [sub_resource type="TileSet" id="TileSet_3oju0"]
 physics_layer_0/collision_layer = 1
@@ -126,7 +128,7 @@ platform_scene = ExtResource("2_0q4u1")
 wall_scene = ExtResource("4_0acmh")
 ground_scene = ExtResource("3_7rnot")
 
-[node name="TileMap64" type="TileMap" parent="."]
+[node name="WallSpawner64" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(16, 0)
 tile_set = SubResource("TileSet_fb0bi")
@@ -134,7 +136,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65542, 65538, 0, 131078, 196610, 0, 196614, 196610, 0, 262150, 196610, 0, 131072, 327682, 0, 196608, 196610, 0, 262144, 196610, 0, 262145, 851970, 0, 262146, 917506, 0, 262147, 917506, 0, 262148, 917506, 0, 262149, 983042, 0, 196610, 458754, 0, 196611, 458754, 0, 196612, 458754, 0, 131074, 458754, 0, 131075, 458754, 0, 131076, 458754, 0, 196609, 720898, 0, 196613, 786434, 0, 131077, 786434, 0, 131073, 720898, 0, 65537, 524290, 0, 65538, 589826, 0, 65539, 589826, 0, 65540, 589826, 0, 65541, 655362, 0, 131079, 327682, 0, 196615, 196610, 0, 262151, 196610, 0, 327687, 327682, 0, 327686, 327682, 0, 327685, 196610, 0, 327684, 196610, 0, 327683, 196610, 0, 327682, 327682, 0, 327681, 196610, 0, 327680, 196610, 0, 393215, 196610, 0, 327679, 327682, 0, 262143, 196610, 0, 196607, 196610, 0, 65543, 131074, 0, 131071, 131074, 0, 393223, 196610, 0, 393222, 196610, 0, 393221, 196610, 0, 393220, 196610, 0, 393219, 196610, 0, 393218, 196610, 0, 393217, 196610, 0, 393216, 196610, 0, 458751, 196610, 0, 524287, 196610, 0, 458752, 196610, 0, 458753, 196610, 0, 458754, 196610, 0, 458755, 196610, 0, 458756, 196610, 0, 458757, 196610, 0, 458758, 196610, 0, 458759, 196610, 0, 589823, 196610, 0, 524288, 196610, 0, 524289, 196610, 0, 524290, 196610, 0, 524291, 196610, 0, 524292, 196610, 0, 524293, 196610, 0, 524294, 196610, 0, 524295, 196610, 0, 655359, 196610, 0, 589824, 196610, 0, 589825, 196610, 0, 589826, 196610, 0, 589827, 196610, 0, 589828, 196610, 0, 589829, 196610, 0, 589830, 196610, 0, 589831, 196610, 0, 65536, 65538, 0)
 script = ExtResource("6_b86c7")
 
-[node name="TileMap16" type="TileMap" parent="."]
+[node name="PlatformSpawner16" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_3oju0")
 format = 2
@@ -172,5 +174,5 @@ custom_minimum_size = Vector2(439, 320)
 [connection signal="falling_to_death" from="Player" to="UI" method="_on_player_falling_to_death"]
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
 [connection signal="reached_top" from="Player" to="." method="_on_player_reached_top"]
-[connection signal="reached_top" from="Player" to="TileMap64" method="_on_player_reached_top"]
-[connection signal="reached_top" from="Player" to="TileMap16" method="_on_player_reached_top"]
+[connection signal="reached_top" from="Player" to="WallSpawner64" method="_on_player_reached_top"]
+[connection signal="reached_top" from="Player" to="PlatformSpawner16" method="_on_player_reached_top"]
