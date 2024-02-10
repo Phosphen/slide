@@ -16,12 +16,27 @@ resource_name = "FollowCamera"
 script/source = "extends Camera2D
 
 @onready var player = $/root/Main/Player
+@export var max_downward_movement: float = 200.0  # Maximum pixels the camera can move down
+var last_highest_y: float  # Keeps track of the highest (smallest y-value) position of the player
 
 func _ready():
 	position.x = 400
+	last_highest_y = player.position.y
 
 func _physics_process(delta):
-	position.y = player.position.y
+	var target_y = player.position.y
+	
+	# If the player moves up, update last_highest_y and move the camera up
+	if target_y < last_highest_y:
+		last_highest_y = target_y
+		position.y = target_y
+	else:
+		# If the player moves down, only allow the camera to move down a limited amount
+		var max_allowed_y = last_highest_y + max_downward_movement
+		if target_y > max_allowed_y:
+			position.y = max_allowed_y
+		else:
+			position.y = target_y
 
 
 func _on_player_falling_to_death():
