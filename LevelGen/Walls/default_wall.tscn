@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dauc37uwpt3b7"]
+
+[ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="2_fq4ot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkxt"]
+size = Vector2(66, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wjpl8"]
+texture = ExtResource("2_fq4ot")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3txyw"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wjpl8")
+
+[node name="Wall" type="StaticBody2D"]
+collision_layer = 17
+metadata/wall_type = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qjkxt")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(-32, -32)
+tile_set = SubResource("TileSet_3txyw")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0)
