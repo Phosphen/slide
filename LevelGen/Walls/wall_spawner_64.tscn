@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://dylpttjqgssn3"]
+
+[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="1_vh2u8"]
+[ext_resource type="PackedScene" uid="uid://dt8k5qow2u6mp" path="res://LevelGen/Walls/fly_wall.tscn" id="2_e7v13"]
+[ext_resource type="PackedScene" uid="uid://cs1kvxlf6xe5l" path="res://LevelGen/Walls/jump_wall.tscn" id="3_2ra73"]
+[ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="4_bphky"]
+[ext_resource type="Script" path="res://LevelGen/TileMap64.gd" id="5_n4aqw"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hjs2i"]
+tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 131072, 0, 3, 196608, 0, 4, 262144, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_moafg"]
+tile_data = PackedInt32Array(0, 0, 0, 2, 131072, 0, 4, 262144, 0)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_enbxi"]
+resource_name = "Walls"
+scenes/1/scene = ExtResource("1_vh2u8")
+scenes/4/scene = ExtResource("2_e7v13")
+scenes/5/scene = ExtResource("3_2ra73")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d24xf"]
+resource_name = "World64"
+texture = ExtResource("4_bphky")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+8:0/0 = 0
+8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:0/0/physics_layer_0/angular_velocity = 0.0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+8:0/0/physics_layer_0/polygon_0/one_way = true
+10:0/0 = 0
+10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:0/0/physics_layer_0/angular_velocity = 0.0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+10:0/0/physics_layer_0/polygon_0/one_way = true
+9:0/0 = 0
+9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:0/0/physics_layer_0/angular_velocity = 0.0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+9:0/0/physics_layer_0/polygon_0/one_way = true
+11:0/0 = 0
+11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:0/0/physics_layer_0/angular_velocity = 0.0
+12:0/0 = 0
+12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:0/0/physics_layer_0/angular_velocity = 0.0
+13:0/0 = 0
+13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+13:0/0/physics_layer_0/angular_velocity = 0.0
+14:0/0 = 0
+14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+14:0/0/physics_layer_0/angular_velocity = 0.0
+15:0/0 = 0
+15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+15:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_fb0bi"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_d24xf")
+sources/0 = SubResource("TileSetScenesCollectionSource_enbxi")
+pattern_0 = SubResource("TileMapPattern_hjs2i")
+pattern_1 = SubResource("TileMapPattern_moafg")
+
+[node name="WallSpawner64" type="TileMap"]
+texture_filter = 1
+position = Vector2(16, 0)
+tile_set = SubResource("TileSet_fb0bi")
+format = 2
+layer_0/tile_data = PackedInt32Array(65542, 65538, 0, 131078, 196610, 0, 196614, 196610, 0, 262150, 393218, 0, 131072, 327682, 0, 196608, 196610, 0, 262144, 196610, 0, 262145, 851970, 0, 262146, 917506, 0, 262147, 917506, 0, 262148, 917506, 0, 262149, 983042, 0, 196610, 458754, 0, 196611, 458754, 0, 196612, 458754, 0, 131074, 458754, 0, 131075, 458754, 0, 131076, 458754, 0, 196609, 720898, 0, 196613, 786434, 0, 131077, 786434, 0, 131073, 720898, 0, 65537, 524290, 0, 65538, 589826, 0, 65539, 589826, 0, 65540, 589826, 0, 65541, 655362, 0, 131079, 327682, 0, 196615, 196610, 0, 262151, 196610, 0, 327687, 327682, 0, 327686, 196610, 0, 327685, 196610, 0, 327684, 196610, 0, 327683, 196610, 0, 327682, 327682, 0, 327681, 196610, 0, 327680, 196610, 0, 393215, 196610, 0, 327679, 327682, 0, 262143, 196610, 0, 196607, 196610, 0, 65543, 131074, 0, 131071, 131074, 0, 393223, 196610, 0, 393222, 196610, 0, 393221, 196610, 0, 393220, 196610, 0, 393219, 196610, 0, 393218, 196610, 0, 393217, 196610, 0, 393216, 196610, 0, 458751, 196610, 0, 524287, 196610, 0, 458752, 196610, 0, 458753, 196610, 0, 458754, 196610, 0, 458755, 196610, 0, 458756, 196610, 0, 458757, 196610, 0, 458758, 196610, 0, 458759, 196610, 0, 589823, 196610, 0, 524288, 196610, 0, 524289, 196610, 0, 524290, 196610, 0, 524291, 196610, 0, 524292, 196610, 0, 524293, 196610, 0, 524294, 196610, 0, 524295, 196610, 0, 655359, 196610, 0, 589824, 196610, 0, 589825, 196610, 0, 589826, 196610, 0, 589827, 196610, 0, 589828, 196610, 0, 589829, 196610, 0, 589830, 196610, 0, 589831, 196610, 0, 65536, 65538, 0)
+script = ExtResource("5_n4aqw")

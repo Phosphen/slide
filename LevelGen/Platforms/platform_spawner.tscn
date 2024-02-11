@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://c40m4jtr36iuv"]
+
+[ext_resource type="PackedScene" uid="uid://ch4swdhnac0ml" path="res://LevelGen/Platforms/static_platform.tscn" id="1_gynv8"]
+[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/Platforms/default_platform.tscn" id="2_e52n1"]
+[ext_resource type="PackedScene" uid="uid://6bradx7kcacn" path="res://LevelGen/Platforms/large_platform.tscn" id="3_s6e4h"]
+[ext_resource type="Script" path="res://LevelGen/TileMap16.gd" id="4_xuj11"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3wg1g"]
+tile_data = PackedInt32Array(0, 4194304, 0, 1, 4259840, 0, 2, 4325376, 0, 3, 4390912, 0, 4, 4456448, 0)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_nl0n2"]
+resource_name = "Platforms"
+scenes/1/scene = ExtResource("1_gynv8")
+scenes/2/scene = ExtResource("2_e52n1")
+scenes/4/scene = ExtResource("3_s6e4h")
+
+[sub_resource type="TileSet" id="TileSet_3oju0"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetScenesCollectionSource_nl0n2")
+pattern_0 = SubResource("TileMapPattern_3wg1g")
+
+[node name="PlatformSpawner16" type="TileMap"]
+texture_filter = 1
+tile_set = SubResource("TileSet_3oju0")
+format = 2
+layer_0/tile_data = PackedInt32Array(851983, 2, 65536)
+script = ExtResource("4_xuj11")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_gynv8")]
+position = Vector2(248, 216)
