@@ -18,13 +18,10 @@ func _spawn_walls(index):
 	var wall_type = 1
 	if rand_value < normal_wall_weight:
 		wall_type = 1	
-		#return create_normal_wall(index)
 	elif rand_value < normal_wall_weight + jump_wall_weight:
 		wall_type = 4
-		#return create_jump_wall(index)
 	else:
 		wall_type = 5
-		#return create_fly_wall(index)
 	
 	# left-right inner walls (aka gameplay walls)
 	set_cell(0, Vector2i(0, index * -1), 0, Vector2i(0, 0), wall_type)
