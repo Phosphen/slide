@@ -1,135 +1,70 @@
-[gd_scene load_steps=27 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=14 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
-[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/Platforms/default_platform.tscn" id="2_0q4u1"]
+[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
 [ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/ground.tscn" id="3_7rnot"]
 [ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="4_0acmh"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
 [ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Scenes/Score/score.tscn" id="5_ahuf4"]
-[ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="5_biry0"]
-[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/Walls/default_wall.tscn" id="5_k0ebf"]
-[ext_resource type="Script" path="res://LevelGen/TileMap64.gd" id="6_b86c7"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
-[ext_resource type="PackedScene" uid="uid://dt8k5qow2u6mp" path="res://LevelGen/Walls/fly_wall.tscn" id="6_ohmwv"]
-[ext_resource type="PackedScene" uid="uid://cs1kvxlf6xe5l" path="res://LevelGen/Walls/jump_wall.tscn" id="7_300dx"]
-[ext_resource type="Script" path="res://LevelGen/TileMap16.gd" id="7_nkjbs"]
-[ext_resource type="PackedScene" uid="uid://ch4swdhnac0ml" path="res://LevelGen/Platforms/static_platform.tscn" id="7_w3oat"]
+[ext_resource type="Texture2D" uid="uid://bowmvgu73u4r2" path="res://Assets/World/world-ground.png" id="7_nyksw"]
 [ext_resource type="Script" path="res://LevelGen/UI.gd" id="8_4y185"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
-[ext_resource type="PackedScene" uid="uid://6bradx7kcacn" path="res://LevelGen/Platforms/large_platform.tscn" id="8_ev0p5"]
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_hjs2i"]
-tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 131072, 0, 3, 196608, 0, 4, 262144, 0)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_moafg"]
-tile_data = PackedInt32Array(0, 0, 0, 2, 131072, 0, 4, 262144, 0)
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_enbxi"]
-resource_name = "Walls"
-scenes/1/scene = ExtResource("5_k0ebf")
-scenes/4/scene = ExtResource("6_ohmwv")
-scenes/5/scene = ExtResource("7_300dx")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d24xf"]
-resource_name = "World64"
-texture = ExtResource("5_biry0")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-5:0/0 = 0
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-6:0/0 = 0
-6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:0/0/physics_layer_0/angular_velocity = 0.0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-7:0/0 = 0
-7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:0/0/physics_layer_0/angular_velocity = 0.0
-8:0/0 = 0
-8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:0/0/physics_layer_0/angular_velocity = 0.0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
-8:0/0/physics_layer_0/polygon_0/one_way = true
-10:0/0 = 0
-10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
-10:0/0/physics_layer_0/polygon_0/one_way = true
-9:0/0 = 0
-9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:0/0/physics_layer_0/angular_velocity = 0.0
-9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
-9:0/0/physics_layer_0/polygon_0/one_way = true
-11:0/0 = 0
-11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:0/0/physics_layer_0/angular_velocity = 0.0
-12:0/0 = 0
-12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-12:0/0/physics_layer_0/angular_velocity = 0.0
-13:0/0 = 0
-13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-13:0/0/physics_layer_0/angular_velocity = 0.0
-14:0/0 = 0
-14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-14:0/0/physics_layer_0/angular_velocity = 0.0
-15:0/0 = 0
-15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-15:0/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSet" id="TileSet_fb0bi"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_d24xf")
-sources/0 = SubResource("TileSetScenesCollectionSource_enbxi")
-pattern_0 = SubResource("TileMapPattern_hjs2i")
-pattern_1 = SubResource("TileMapPattern_moafg")
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_3wg1g"]
-tile_data = PackedInt32Array(0, 4194304, 0, 1, 4259840, 0, 2, 4325376, 0, 3, 4390912, 0, 4, 4456448, 0)
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_nl0n2"]
-resource_name = "Platforms"
-scenes/1/scene = ExtResource("7_w3oat")
-scenes/2/scene = ExtResource("2_0q4u1")
-scenes/4/scene = ExtResource("8_ev0p5")
-
-[sub_resource type="TileSet" id="TileSet_3oju0"]
-physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetScenesCollectionSource_nl0n2")
-pattern_0 = SubResource("TileMapPattern_3wg1g")
+[ext_resource type="PackedScene" uid="uid://c7xdjuymk7qa3" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
 
 [sub_resource type="GDScript" id="GDScript_2srvb"]
 resource_name = "FollowCamera"
 script/source = "extends Camera2D
 
 @onready var player = $/root/Main/Player
+@export var max_downward_movement: float = 200.0  # Maximum pixels the camera can move down
+var last_highest_y: float  # Keeps track of the highest (smallest y-value) position of the player
 
-#func _ready():
-	#position.x = 400
+func _ready():
+	position.x = 400
+	last_highest_y = player.position.y
 
 func _physics_process(delta):
-	position.y = player.position.y
+	var target_y = player.position.y
+	
+	# If the player moves up, update last_highest_y and move the camera up
+	if target_y < last_highest_y:
+		last_highest_y = target_y
+		position.y = target_y
+	else:
+		# If the player moves down, only allow the camera to move down a limited amount
+		var max_allowed_y = last_highest_y + max_downward_movement
+		if target_y > max_allowed_y:
+			position.y = max_allowed_y
+		else:
+			position.y = target_y
+
+
+func _on_player_falling_to_death():
+	pass # Replace with function body.
 "
+
+[sub_resource type="GDScript" id="GDScript_0jlm4"]
+script/source = "extends Area2D
+
+@onready var cameraObject = $\"../Camera2D\"
+@onready var playerObject = $\"../Player\"
+
+@onready var last_position: Vector2 = cameraObject.global_position
+
+func _process(delta):
+	# camera is above the death box
+	if cameraObject.global_position.y < last_position.y:
+		last_position.y = cameraObject.global_position.y;
+		global_position.y = cameraObject.global_position.y
+		#print(\"goes up: Cam: \", cameraObject.global_position.y, \" bounding: \", last_position.y)
+
+func _on_area_entered(area):
+	if area.name == \"PlatformOverlap\":
+		playerObject.falling_to_death.emit()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xidxv"]
+size = Vector2(498, 12)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5o2wn")
@@ -137,23 +72,8 @@ platform_scene = ExtResource("2_0q4u1")
 wall_scene = ExtResource("4_0acmh")
 ground_scene = ExtResource("3_7rnot")
 
-[node name="WallSpawner64" type="TileMap" parent="."]
-texture_filter = 1
-position = Vector2(16, 0)
-tile_set = SubResource("TileSet_fb0bi")
-format = 2
-layer_0/tile_data = PackedInt32Array(65542, 65538, 0, 131078, 196610, 0, 196614, 196610, 0, 262150, 393218, 0, 131072, 327682, 0, 196608, 196610, 0, 262144, 196610, 0, 262145, 851970, 0, 262146, 917506, 0, 262147, 917506, 0, 262148, 917506, 0, 262149, 983042, 0, 196610, 458754, 0, 196611, 458754, 0, 196612, 458754, 0, 131074, 458754, 0, 131075, 458754, 0, 131076, 458754, 0, 196609, 720898, 0, 196613, 786434, 0, 131077, 786434, 0, 131073, 720898, 0, 65537, 524290, 0, 65538, 589826, 0, 65539, 589826, 0, 65540, 589826, 0, 65541, 655362, 0, 131079, 327682, 0, 196615, 196610, 0, 262151, 196610, 0, 327687, 327682, 0, 327686, 196610, 0, 327685, 196610, 0, 327684, 196610, 0, 327683, 196610, 0, 327682, 327682, 0, 327681, 196610, 0, 327680, 196610, 0, 393215, 196610, 0, 327679, 327682, 0, 262143, 196610, 0, 196607, 196610, 0, 65543, 131074, 0, 131071, 131074, 0, 393223, 196610, 0, 393222, 196610, 0, 393221, 196610, 0, 393220, 196610, 0, 393219, 196610, 0, 393218, 196610, 0, 393217, 196610, 0, 393216, 196610, 0, 458751, 196610, 0, 524287, 196610, 0, 458752, 196610, 0, 458753, 196610, 0, 458754, 196610, 0, 458755, 196610, 0, 458756, 196610, 0, 458757, 196610, 0, 458758, 196610, 0, 458759, 196610, 0, 589823, 196610, 0, 524288, 196610, 0, 524289, 196610, 0, 524290, 196610, 0, 524291, 196610, 0, 524292, 196610, 0, 524293, 196610, 0, 524294, 196610, 0, 524295, 196610, 0, 655359, 196610, 0, 589824, 196610, 0, 589825, 196610, 0, 589826, 196610, 0, 589827, 196610, 0, 589828, 196610, 0, 589829, 196610, 0, 589830, 196610, 0, 589831, 196610, 0, 65536, 65538, 0)
-script = ExtResource("6_b86c7")
-
-[node name="PlatformSpawner16" type="TileMap" parent="."]
-texture_filter = 1
-tile_set = SubResource("TileSet_3oju0")
-format = 2
-layer_0/tile_data = PackedInt32Array(851983, 2, 65536)
-script = ExtResource("7_nkjbs")
-
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_rsqvq")]
-position = Vector2(300, 133)
+position = Vector2(300, -20)
 wall_bounce_strength = Vector2(1.5, 30)
 high_jump_treshold = 200.0
 camera = NodePath("../Camera2D")
@@ -167,8 +87,25 @@ update_scale = false
 [node name="GUI" parent="." instance=ExtResource("5_ahuf4")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(240, -20)
+position = Vector2(300, -20)
 script = SubResource("GDScript_2srvb")
+
+[node name="GameOverArea" type="Area2D" parent="."]
+position = Vector2(299, 2.08165e-12)
+collision_layer = 2
+collision_mask = 4
+script = SubResource("GDScript_0jlm4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="GameOverArea"]
+visible = false
+position = Vector2(1, 400)
+scale = Vector2(6.24001, 0.360002)
+texture = ExtResource("7_nyksw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea"]
+position = Vector2(2.08165e-12, 400)
+shape = SubResource("RectangleShape2D_xidxv")
+debug_color = Color(0, 0.65098, 0.133333, 0.419608)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_klvki")]
 
@@ -180,8 +117,8 @@ visible = false
 custom_minimum_size = Vector2(439, 320)
 
 [connection signal="falling_to_death" from="Player" to="." method="_on_player_falling_to_death"]
+[connection signal="falling_to_death" from="Player" to="Camera2D" method="_on_player_falling_to_death"]
 [connection signal="falling_to_death" from="Player" to="UI" method="_on_player_falling_to_death"]
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
 [connection signal="reached_top" from="Player" to="." method="_on_player_reached_top"]
-[connection signal="reached_top" from="Player" to="WallSpawner64" method="_on_player_reached_top"]
-[connection signal="reached_top" from="Player" to="PlatformSpawner16" method="_on_player_reached_top"]
+[connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]

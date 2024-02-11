@@ -4,6 +4,7 @@ extends Node
 const BEAKGROUND_MUSIC_1 : AudioStreamWAV = preload("res://Assets/Sounds/Background_Music.wav")
 const BEAKGROUND_MUSIC_2 : AudioStreamWAV = preload("res://Assets/Sounds/Background_Music_2.wav")
 const BEAKGROUND_MUSIC_3 : AudioStreamMP3 = preload("res://Assets/Sounds/Background_Music_3.mp3")
+const BEAKGROUND_MUSIC_SirUp_Main_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/SirUp_Main_Theme_Alpha_3.mp3")
 
 
 #Sounds
@@ -34,4 +35,11 @@ func play_sound(sound):
 		if not player.playing:
 			player.stream = sound
 			player.play()
+			break
+			
+			
+func stop_music(music):
+	for player in music_players:
+		if player.playing and player.stream == music:
+			player.stop()
 			break
