@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dylpttjqgssn3"]
 
-[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="1_vh2u8"]
+[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="1_h08ic"]
 [ext_resource type="PackedScene" uid="uid://dt8k5qow2u6mp" path="res://LevelGen/Walls/fly_wall.tscn" id="2_e7v13"]
 [ext_resource type="PackedScene" uid="uid://cs1kvxlf6xe5l" path="res://LevelGen/Walls/jump_wall.tscn" id="3_2ra73"]
 [ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="4_bphky"]
@@ -14,7 +14,7 @@ tile_data = PackedInt32Array(0, 0, 0, 2, 131072, 0, 4, 262144, 0)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_enbxi"]
 resource_name = "Walls"
-scenes/1/scene = ExtResource("1_vh2u8")
+scenes/1/scene = ExtResource("1_h08ic")
 scenes/4/scene = ExtResource("2_e7v13")
 scenes/5/scene = ExtResource("3_2ra73")
 
@@ -77,12 +77,15 @@ texture_region_size = Vector2i(64, 64)
 13:0/0 = 0
 13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:0/0/physics_layer_0/angular_velocity = 0.0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 30, 32, 30, 32, 32, -32, 32)
 14:0/0 = 0
 14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:0/0/physics_layer_0/angular_velocity = 0.0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 30, 32, 30, 32, 32, -32, 32)
 15:0/0 = 0
 15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:0/0/physics_layer_0/angular_velocity = 0.0
+15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 30, 32, 30, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_fb0bi"]
 tile_size = Vector2i(64, 64)

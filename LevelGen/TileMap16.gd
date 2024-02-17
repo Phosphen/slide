@@ -6,7 +6,13 @@ const distance_between_platforms = 6
 var double_width_probability = 0.5  # 20% chance
 
 func _ready():
+	#_spawn_start_platforms()
 	_spawn_next_batch()
+
+func _spawn_start_platforms():
+	for i in range(3):
+		_spawn_static_platform(platform_index + i)
+	platform_index += 3
 
 func _spawn_next_batch():
 	for i in range(20):
@@ -25,6 +31,12 @@ func _spawn_platform(index):
 	else:
 		var randomX = randi_range(7, 22)
 		set_cell(0, Vector2i(randomX - 0, index * -1), 2, Vector2i(0, 0), 2)
+
+func _spawn_static_platform(index):
+	index *= distance_between_platforms
+	
+	var randomX = randi_range(7, 22)
+	set_cell(0, Vector2i(randomX - 0, index * -1), 2, Vector2i(0, 0), 1)
 
 func _on_player_reached_top():
 	# todo: clear lower batch
