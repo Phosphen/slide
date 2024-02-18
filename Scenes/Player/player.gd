@@ -4,6 +4,7 @@ signal reached_height
 signal reached_top
 signal falling_to_death
 
+var rip = false
 var max_reached_height = 0.0
 var last_trigger_height = 0.0  # To track the last height at which the event was triggered
 
@@ -41,7 +42,6 @@ func _process(delta):
 	var height_difference = max_reached_height - last_trigger_height
 
 	if height_difference <= -TOP_HEIGHT:
-		print("last_trigger_height: position ", position.y, " max reached height ", max_reached_height)
 		reached_top.emit()
 		last_trigger_height = max_reached_height
 	
@@ -58,8 +58,12 @@ func is_falling() -> bool:
 	return false
 	
 func trigger_game_over():
+	if rip:
+		return
+		
 	small_shake()
 	falling_to_death.emit()
+	rip = true
 	# Game over logic here, like showing a game over screen or resetting the level
 	print("Game Over!")
 

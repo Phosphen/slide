@@ -12,6 +12,7 @@ extends Node
 @export var jump_wall_weight = 15    # 15% chance to be a jump wall
 @export var fly_wall_weight = 15     # 15% chance to be a fly wall
 @export var wall_min_batch_size = 3  
+@export var number_of_static_platforms = 3
 var last_wall_type = ""
 var current_wall_batch_count = 0
 
@@ -23,11 +24,13 @@ var screen_size
 var screen_width
 var middle
 var wall_index
+var platform_index
 
 var wall_width:float = 0.0
 
 var ground_instances = []
 var wall_instances = []
+var spawned_platforms = []
 
 func _ready():
 #	screen_size = get_viewport().size
@@ -35,9 +38,10 @@ func _ready():
 	screen_width = screen_size.x  # Adjust based on your game's resolution
 	last_platform_position = Vector2(screen_width * 0.5, -DISTANCE_BETWEEN_PLATFORMS)
 	wall_index = 0
+	platform_index = 0
 	_spawn_floor()
 	_spawn_level_batch()
-#	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_3)
+	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
 
 func _spawn_floor():
 	for i in range(5):
@@ -53,8 +57,9 @@ func _spawn_level_batch():
 	for i in range(10):
 		_spawn_walls(wall_index + i)
 	for i in range(20):
-		_spawn_platform(i)
+		_spawn_platform(platform_index + i)
 	wall_index += 10
+	platform_index += 20
 
 func _free_lowest_walls():
 	if (wall_index < 30):
@@ -66,7 +71,13 @@ func _free_lowest_walls():
 
 func _spawn_platform(_index):
 	var platform = platform_scene.instantiate()
+	var isStaticPlatform = _index < number_of_static_platforms
+	if isStaticPlatform:
+		spawned_platforms.append(platform)
+		platform.set_static(true)
+		
 	platform.set_name("Platform")
+	
 	var sprite_size = _get_sprite_size(platform)
 
 	# Determine if this platform should be double-width
@@ -170,11 +181,19 @@ func _get_sprite_size(node_with_sprite):
 	return Vector2(sprite_w, sprite_h)
 
 func _on_player_reached_top():
-	print("On player reached top")
+	# print("On player reached top")
 	_free_lowest_walls()
 	_spawn_level_batch()
 
 func _on_player_falling_to_death():
+	AudioManager.stop_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
 	for floor_instance in ground_instances:
-		floor_instance.sleeping = false
-		floor_instance.freeze = false
+		floor_instance.queue_free()
+		
+	for platform in spawned_platforms:
+		platform.queue_free()
+		platform.freeze = false
+		platform.sleeping = false
+		
+	spawned_platforms.clear()
+	ground_instances.clear()
