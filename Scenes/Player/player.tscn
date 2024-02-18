@@ -91,7 +91,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k161k"]
 radius = 7.0
-height = 20.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_mlu16"]
 length = 1.1
@@ -213,7 +213,6 @@ sprite_frames = SubResource("SpriteFrames_sfxao")
 animation = &"slide"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_k161k")
 
 [node name="ShootingAnimationPlayer" type="AnimationPlayer" parent="."]

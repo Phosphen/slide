@@ -1,15 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=13 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
-[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/brick_scene.tscn" id="2_0q4u1"]
-[ext_resource type="PackedScene" uid="uid://dgloopipmufx" path="res://LevelGen/ground.tscn" id="3_7rnot"]
-[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="4_0acmh"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
 [ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Scenes/Score/score.tscn" id="5_ahuf4"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
 [ext_resource type="Texture2D" uid="uid://bowmvgu73u4r2" path="res://Assets/World/world-ground.png" id="7_nyksw"]
 [ext_resource type="Script" path="res://LevelGen/UI.gd" id="8_4y185"]
-[ext_resource type="PackedScene" uid="uid://c7xdjuymk7qa3" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
+[ext_resource type="PackedScene" uid="uid://dylpttjqgssn3" path="res://LevelGen/Walls/wall_spawner_64.tscn" id="11_jrs1f"]
+[ext_resource type="PackedScene" uid="uid://c40m4jtr36iuv" path="res://LevelGen/Platforms/platform_spawner.tscn" id="12_u2tsh"]
 
 [sub_resource type="GDScript" id="GDScript_2srvb"]
 resource_name = "FollowCamera"
@@ -20,11 +19,11 @@ script/source = "extends Camera2D
 var last_highest_y: float  # Keeps track of the highest (smallest y-value) position of the player
 
 func _ready():
-	position.x = 400
 	last_highest_y = player.position.y
 
 func _physics_process(delta):
-	var target_y = player.position.y
+	#position.y = player.position.y - 30
+	var target_y = player.position.y - 30
 	
 	# If the player moves up, update last_highest_y and move the camera up
 	if target_y < last_highest_y:
@@ -68,12 +67,13 @@ size = Vector2(498, 12)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5o2wn")
-platform_scene = ExtResource("2_0q4u1")
-wall_scene = ExtResource("4_0acmh")
-ground_scene = ExtResource("3_7rnot")
+
+[node name="WallSpawner64" parent="." instance=ExtResource("11_jrs1f")]
+
+[node name="PlatformSpawner16" parent="." instance=ExtResource("12_u2tsh")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_rsqvq")]
-position = Vector2(300, -20)
+position = Vector2(307, 182)
 wall_bounce_strength = Vector2(1.5, 30)
 high_jump_treshold = 200.0
 camera = NodePath("../Camera2D")
@@ -87,7 +87,7 @@ update_scale = false
 [node name="GUI" parent="." instance=ExtResource("5_ahuf4")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(300, -20)
+position = Vector2(240, 142)
 script = SubResource("GDScript_2srvb")
 
 [node name="GameOverArea" type="Area2D" parent="."]
@@ -120,5 +120,6 @@ custom_minimum_size = Vector2(439, 320)
 [connection signal="falling_to_death" from="Player" to="Camera2D" method="_on_player_falling_to_death"]
 [connection signal="falling_to_death" from="Player" to="UI" method="_on_player_falling_to_death"]
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
-[connection signal="reached_top" from="Player" to="." method="_on_player_reached_top"]
+[connection signal="reached_top" from="Player" to="WallSpawner64" method="_on_player_reached_top"]
+[connection signal="reached_top" from="Player" to="PlatformSpawner16" method="_on_player_reached_top"]
 [connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]
