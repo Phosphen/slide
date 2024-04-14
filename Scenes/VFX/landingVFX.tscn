@@ -11,12 +11,18 @@ particles_anim_loop = false
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rpst6"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
-anim_speed_min = 2.0
-anim_speed_max = 2.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
 
-[node name="dust_vfx" type="GPUParticles2D"]
+[node name="dust" type="Node2D"]
+
+[node name="dust_vfx" type="GPUParticles2D" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qatpv")
+position = Vector2(0, -16)
+emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_rpst6")
 texture = ExtResource("1_ucobb")
+lifetime = 0.4
+one_shot = true
