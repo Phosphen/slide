@@ -9,10 +9,12 @@ var max_reached_height = 0.0
 var last_trigger_height = 0.0  # To track the last height at which the event was triggered
 
 var dust_vfx = preload("res://Scenes/VFX/dust.tscn")
+var landing_vfx = preload("res://Scenes/VFX/landing.tscn")
 
 #Data
 var is_wall_bouncing = false
 var is_jumping = false
+var is_in_air = false
 var played_rot_jump = false
 var fall_time = 0.0  # Time the player has been falling
 @export var TOP_HEIGHT = 100
@@ -76,16 +78,26 @@ func _physics_process(delta):
 	
 	apply_gravity(delta)
 	
-	if is_on_floor() and is_jumping:
-		is_jumping = false
-		played_rot_jump = false
+	# spawn landing vfx on landing
+	if is_on_floor():
+		if is_in_air:
+			is_in_air = false
+			is_jumping = false
+			played_rot_jump = false
+			var instance = landing_vfx.instantiate()
+			add_child(instance)
+			instance.global_position = global_position + Vector2(0, 12)
+			var landing = instance.get_child(0)
+			landing.emitting = true
+			print("landed!")
+	else:
+		is_in_air = true
 
 	# spawn dust vfx
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		var instance = dust_vfx.instantiate()
 		add_child(instance)
 		instance.global_position = global_position + Vector2(0, 20)
-		print(instance.global_position)
 		var dust = instance.get_child(0)
 		dust.emitting = true
 	
