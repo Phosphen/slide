@@ -1,6 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://wtj4m5tjepxv"]
+[gd_scene load_steps=7 format=3 uid="uid://wtj4m5tjepxv"]
 
 [ext_resource type="Texture2D" uid="uid://i06rprmwo0lj" path="res://Assets/VFX/dust_sheet.png" id="1_l3qax"]
+
+[sub_resource type="GDScript" id="GDScript_b4xt4"]
+script/source = "extends Node2D
+
+func _on_dust_vfx_finished():
+	queue_free()
+"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qatpv"]
 particles_animation = true
@@ -22,6 +29,7 @@ anim_speed_min = 1.0
 anim_speed_max = 1.0
 
 [node name="dust" type="Node2D"]
+script = SubResource("GDScript_b4xt4")
 
 [node name="dust_vfx" type="GPUParticles2D" parent="."]
 z_index = 50
@@ -34,3 +42,5 @@ process_material = SubResource("ParticleProcessMaterial_rpst6")
 texture = ExtResource("1_l3qax")
 lifetime = 0.4
 one_shot = true
+
+[connection signal="finished" from="dust_vfx" to="." method="_on_dust_vfx_finished"]
