@@ -8,7 +8,7 @@ var rip = false
 var max_reached_height = 0.0
 var last_trigger_height = 0.0  # To track the last height at which the event was triggered
 
-
+var dust_vfx = preload("res://Scenes/VFX/dust.tscn")
 
 #Data
 var is_wall_bouncing = false
@@ -80,6 +80,14 @@ func _physics_process(delta):
 		is_jumping = false
 		played_rot_jump = false
 
+	# spawn dust vfx
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		var instance = dust_vfx.instantiate()
+		add_child(instance)
+		instance.global_position = global_position + Vector2(0, 20)
+		print(instance.global_position)
+		var dust = instance.get_child(0)
+		dust.emitting = true
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_special_wall("jump")):
 		jump()
