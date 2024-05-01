@@ -15,9 +15,9 @@ func _spawn_start_platforms():
 	platform_index += 3
 
 func _spawn_next_batch():
-	for i in range(20):
+	for i in range(5):
 		_spawn_platform(platform_index + i)
-	platform_index += 20
+	platform_index += 5
 
 # xRange wall to wall: 5 <-> 24
 func _spawn_platform(index):
@@ -41,3 +41,13 @@ func _spawn_static_platform(index):
 func _on_player_reached_top():
 	# todo: clear lower batch
 	_spawn_next_batch()
+	var player = $"../Player"
+	var player_posY = local_to_map(player.position).y
+	print("Player: ", player_posY)
+	var cells = get_used_cells(0)
+	
+	for cell in cells:
+		if cell.y > (player_posY + 16):
+			# delete cell
+			set_cell(0, cell, -1, Vector2i(-1, -1), -1)
+			
