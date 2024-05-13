@@ -39,6 +39,7 @@ func _ready():
 func _process(delta):
 	if position.y < max_reached_height:
 		max_reached_height = position.y
+		reached_height.emit(abs(max_reached_height))
 
 	# Calculate the height difference since the last trigger
 	var height_difference = max_reached_height - last_trigger_height

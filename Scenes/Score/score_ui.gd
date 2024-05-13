@@ -13,4 +13,4 @@ func _process(delta):
 #get_node("/root/path_to_the_node")
 
 func _on_player_reached_height(max_reached_height):
-	score_ui_count.text = "%.0f" % max_reached_height
+	score_ui_count.text = "%.0f" % (max_reached_height / 100)
