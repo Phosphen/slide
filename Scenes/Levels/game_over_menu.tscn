@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7xdjuymk7qa3"]
+[gd_scene load_steps=7 format=3 uid="uid://c7xdjuymk7qa3"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_menu.gd" id="1_kehlv"]
-[ext_resource type="Texture2D" uid="uid://bgxv8minqtxi7" path="res://Assets/Menu/title.png" id="2_kunxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_favyf"]
 bg_color = Color(0.482353, 0.666667, 0.282353, 1)
@@ -80,12 +79,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kier7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
 text = "Main menu"
-
-[node name="Title" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(225, 108)
-scale = Vector2(0.552083, 0.552083)
-texture = ExtResource("2_kunxx")
 
 [connection signal="button_up" from="Buttons/Continue" to="." method="_on_continue_button_up"]
 [connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_start_mouse_entered"]

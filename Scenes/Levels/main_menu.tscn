@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://1nwvmn6wghcv"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/main_menu.gd" id="1_n0v58"]
-[ext_resource type="Texture2D" uid="uid://bgxv8minqtxi7" path="res://Assets/Menu/title.png" id="2_66kyh"]
+[ext_resource type="Texture2D" uid="uid://ckb7oym7s6u61" path="res://Assets/Menu/title.png" id="2_66kyh"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="3_235or"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ucqn"]
@@ -111,9 +111,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -10.0
+offset_top = 70.0
 offset_right = 115.0
-offset_bottom = 120.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -167,14 +167,14 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Transition"
 libraries = {
 "": SubResource("AnimationLibrary_awv7d")
 }
+autoplay = "Transition"
 
 [node name="Title" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(238, 85)
+position = Vector2(236, 114)
 texture = ExtResource("2_66kyh")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_235or")]
