@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blyt10apw6lar"]
+
+[ext_resource type="FontFile" uid="uid://s2ppjjftnn0" path="res://Assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff2" id="1_yt1oy"]
+
+[resource]
+default_font = ExtResource("1_yt1oy")
+default_font_size = 12
+/colors/white = Color(1, 1, 1, 1)
+/font_sizes/sizee = 12
+/fonts/fontt = ExtResource("1_yt1oy")

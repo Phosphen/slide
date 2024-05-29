@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://1nwvmn6wghcv"]
+[gd_scene load_steps=13 format=3 uid="uid://1nwvmn6wghcv"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/main_menu.gd" id="1_n0v58"]
 [ext_resource type="Texture2D" uid="uid://ckb7oym7s6u61" path="res://Assets/Menu/title.png" id="2_66kyh"]
+[ext_resource type="Theme" uid="uid://blyt10apw6lar" path="res://Theme.tres" id="2_whqkg"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="3_235or"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ucqn"]
@@ -92,17 +93,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n0v58")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -110,31 +100,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = 70.0
-offset_right = 115.0
-offset_bottom = 208.0
+offset_left = -62.0
+offset_top = 57.0
+offset_right = 158.0
+offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("2_whqkg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_1ucqn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tuls8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
 text = "Start"
+flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("2_whqkg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_kier7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
 text = "Quit"
+flat = true
 
 [node name="Footer" type="Label" parent="."]
 layout_mode = 1
