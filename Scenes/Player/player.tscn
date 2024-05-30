@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvjodc5t5wxm1"]
+[gd_scene load_steps=21 format=3 uid="uid://dvjodc5t5wxm1"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_dpnq5"]
 [ext_resource type="Resource" uid="uid://bvast80iosmev" path="res://Scenes/Player/Player Movement Data.tres" id="2_spjjl"]
@@ -92,53 +92,6 @@ animations = [{
 radius = 7.0
 height = 18.0
 
-[sub_resource type="Animation" id="Animation_mlu16"]
-length = 1.1
-
-[sub_resource type="Animation" id="Animation_creca"]
-resource_name = "Shoot"
-length = 0.2
-step = 0.05
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"shoot"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"small_shake"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_8vmw1"]
-resource_name = "normal"
-length = 0.1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x67tq"]
-_data = {
-"RESET": SubResource("Animation_mlu16"),
-"Shoot": SubResource("Animation_creca"),
-"normal": SubResource("Animation_8vmw1")
-}
-
 [sub_resource type="Animation" id="Animation_q36re"]
 resource_name = "Hit"
 length = 1.1
@@ -212,12 +165,6 @@ animation = &"slide"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_k161k")
-
-[node name="ShootingAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_x67tq")
-}
-autoplay = "normal"
 
 [node name="HitAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
