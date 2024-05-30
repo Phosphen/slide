@@ -27,7 +27,6 @@ var fall_time = 0.0  # Time the player has been falling
 
 #Refrences
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
-@onready var hit_animator : AnimationPlayer = $HitAnimationPlayer
 
 @export var camera : Camera2D
 
