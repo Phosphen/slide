@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=11 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
 [ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Scenes/Score/score.tscn" id="5_ahuf4"]
-[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="6_klvki"]
 [ext_resource type="Texture2D" uid="uid://bowmvgu73u4r2" path="res://Assets/World/world-ground.png" id="7_nyksw"]
-[ext_resource type="Script" path="res://LevelGen/UI.gd" id="8_4y185"]
-[ext_resource type="PackedScene" uid="uid://c7xdjuymk7qa3" path="res://Scenes/Levels/game_over_menu.tscn" id="8_a4cpu"]
 [ext_resource type="PackedScene" uid="uid://dylpttjqgssn3" path="res://LevelGen/Walls/wall_spawner_64.tscn" id="11_jrs1f"]
 [ext_resource type="PackedScene" uid="uid://c40m4jtr36iuv" path="res://LevelGen/Platforms/platform_spawner.tscn" id="12_u2tsh"]
 
@@ -21,7 +19,7 @@ var last_highest_y: float  # Keeps track of the highest (smallest y-value) posit
 func _ready():
 	last_highest_y = player.position.y
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#position.y = player.position.y - 30
 	var target_y = player.position.y - 30
 	
@@ -50,7 +48,7 @@ script/source = "extends Area2D
 
 @onready var last_position: Vector2 = cameraObject.global_position
 
-func _process(delta):
+func _process(_delta):
 	# camera is above the death box
 	if cameraObject.global_position.y < last_position.y:
 		last_position.y = cameraObject.global_position.y;
@@ -109,16 +107,8 @@ debug_color = Color(0, 0.65098, 0.133333, 0.419608)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_klvki")]
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("8_4y185")
-
-[node name="GameOverMenu" parent="UI" instance=ExtResource("8_a4cpu")]
-visible = false
-custom_minimum_size = Vector2(439, 320)
-
 [connection signal="falling_to_death" from="Player" to="." method="_on_player_falling_to_death"]
 [connection signal="falling_to_death" from="Player" to="Camera2D" method="_on_player_falling_to_death"]
-[connection signal="falling_to_death" from="Player" to="UI" method="_on_player_falling_to_death"]
 [connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
 [connection signal="reached_top" from="Player" to="WallSpawner64" method="_on_player_reached_top"]
 [connection signal="reached_top" from="Player" to="PlatformSpawner16" method="_on_player_reached_top"]

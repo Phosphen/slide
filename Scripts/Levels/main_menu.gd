@@ -14,7 +14,7 @@ func _on_start_mouse_entered():
 func _on_quit_mouse_entered():
 	AudioManager.play_sound(AudioManager.MENU_HOVER)
 
-func _on_start_button_up():
+func _on_start_pressed():
 	AudioManager.play_sound(AudioManager.MENU_CLICK)
 	get_tree().change_scene_to_file("res://LevelGen/main.tscn")
 

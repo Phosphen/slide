@@ -31,3 +31,5 @@ func _on_player_falling_to_death():
 		
 	spawned_platforms.clear()
 	ground_instances.clear()
+
+	get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")

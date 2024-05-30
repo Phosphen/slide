@@ -1,39 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://1nwvmn6wghcv"]
+[gd_scene load_steps=11 format=3 uid="uid://1nwvmn6wghcv"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/main_menu.gd" id="1_n0v58"]
+[ext_resource type="Texture2D" uid="uid://bnfq8bc2278pt" path="res://Assets/UI/UI_start_low2.png" id="2_3vw0x"]
 [ext_resource type="Texture2D" uid="uid://ckb7oym7s6u61" path="res://Assets/Menu/title.png" id="2_66kyh"]
-[ext_resource type="Theme" uid="uid://blyt10apw6lar" path="res://Theme.tres" id="2_whqkg"]
-[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="3_235or"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ucqn"]
-bg_color = Color(0.494118, 0.615686, 0.729412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuls8"]
-bg_color = Color(0.6, 0.6, 0.6, 0.627451)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk1s2"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1smoh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kier7"]
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="3_235or"]
+[ext_resource type="Texture2D" uid="uid://bhg3qu8xty1px" path="res://Assets/UI/UI_start_high1.png" id="3_eebpj"]
+[ext_resource type="Texture2D" uid="uid://bdrwml1j1b86b" path="res://Assets/UI/UI_quit_low2.png" id="4_tu51e"]
+[ext_resource type="Texture2D" uid="uid://bnjecjjgvk8xy" path="res://Assets/UI/UI_quit_high1.png" id="5_yygat"]
 
 [sub_resource type="Animation" id="Animation_q4pwp"]
 length = 0.001
@@ -109,30 +82,21 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="TextureButton" parent="VBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 32)
 layout_mode = 2
-theme = ExtResource("2_whqkg")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_1ucqn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tuls8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
-text = "Start"
-flat = true
+texture_normal = ExtResource("2_3vw0x")
+texture_hover = ExtResource("3_eebpj")
+stretch_mode = 5
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 32)
 layout_mode = 2
-theme = ExtResource("2_whqkg")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_kier7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
-text = "Quit"
-flat = true
+texture_normal = ExtResource("4_tu51e")
+texture_hover = ExtResource("5_yygat")
+stretch_mode = 5
 
 [node name="Footer" type="Label" parent="."]
 layout_mode = 1
@@ -177,7 +141,7 @@ texture = ExtResource("2_66kyh")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_235or")]
 
-[connection signal="button_up" from="VBoxContainer/Start" to="." method="_on_start_button_up"]
 [connection signal="mouse_entered" from="VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="button_up" from="VBoxContainer/Quit" to="." method="_on_quit_button_up"]
 [connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]

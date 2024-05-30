@@ -6,7 +6,7 @@ extends Node2D
 const FALL_SPEED = 20
 
 func _ready():
-	pass # Replace with function body.
+	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_Game_Over_Theme)
 
 func _process(delta):
 	parallax_background.scroll_offset = parallax_background.scroll_offset + Vector2(0, -FALL_SPEED * 0.25)

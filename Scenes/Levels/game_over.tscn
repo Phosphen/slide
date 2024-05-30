@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_scene.gd" id="1_fkqv0"]
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_menu.gd" id="1_nw4d6"]
-[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="1_sacm0"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="1_sacm0"]
 [ext_resource type="Texture2D" uid="uid://m53jttgavgyi" path="res://Assets/Character/candee_small.png" id="3_c7abd"]
+[ext_resource type="Texture2D" uid="uid://tswiuor4vsfi" path="res://Assets/UI/UI_restart_low2.png" id="5_h8coi"]
+[ext_resource type="Texture2D" uid="uid://dnpkdg1i3ygir" path="res://Assets/UI/UI_restart_high1.png" id="6_7lskv"]
+[ext_resource type="Texture2D" uid="uid://dt2mv4jus5uu7" path="res://Assets/UI/UI_main_menu_low2.png" id="7_3sbwc"]
+[ext_resource type="Texture2D" uid="uid://7i84f5srsu7a" path="res://Assets/UI/UI_main_menu_high1.png" id="8_wmwqi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb121"]
 atlas = ExtResource("3_c7abd")
@@ -69,30 +73,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_favyf"]
-bg_color = Color(0.482353, 0.666667, 0.282353, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuls8"]
-bg_color = Color(0.6, 0.6, 0.6, 0.627451)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk1s2"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1smoh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kier7"]
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="Theme" id="Theme_pug2a"]
+default_font_size = 12
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_fkqv0")
@@ -107,11 +89,12 @@ autoplay = "spin"
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_sacm0")]
 
 [node name="GameOverMenu" type="Control" parent="."]
-custom_minimum_size = Vector2(437, 320)
+custom_minimum_size = Vector2(440, 320)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 320.0
+theme = SubResource("Theme_pug2a")
 script = ExtResource("1_nw4d6")
 metadata/_edit_vertical_guides_ = [225.0]
 
@@ -122,31 +105,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -40.0
-offset_right = 210.0
-offset_bottom = 98.0
+offset_left = -62.0
+offset_top = -17.0
+offset_right = 187.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 alignment = 1
 
-[node name="Restart" type="Button" parent="GameOverMenu/Buttons"]
+[node name="Restart" type="TextureButton" parent="GameOverMenu/Buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 32)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_favyf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tuls8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
-text = "Restart"
+texture_normal = ExtResource("5_h8coi")
+texture_hover = ExtResource("6_7lskv")
+stretch_mode = 5
 
-[node name="Main menu" type="Button" parent="GameOverMenu/Buttons"]
+[node name="Main menu" type="TextureButton" parent="GameOverMenu/Buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 32)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_kier7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dk1s2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1smoh")
-text = "Main menu"
+texture_normal = ExtResource("7_3sbwc")
+texture_hover = ExtResource("8_wmwqi")
+stretch_mode = 5
 
 [connection signal="button_up" from="GameOverMenu/Buttons/Restart" to="GameOverMenu" method="_on_start_button_up"]
 [connection signal="mouse_entered" from="GameOverMenu/Buttons/Restart" to="GameOverMenu" method="_on_start_mouse_entered"]

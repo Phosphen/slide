@@ -1,22 +1,13 @@
 extends Node
 
 #Music
-const BEAKGROUND_MUSIC_1 : AudioStreamWAV = preload("res://Assets/Sounds/Background_Music.wav")
-const BEAKGROUND_MUSIC_2 : AudioStreamWAV = preload("res://Assets/Sounds/Background_Music_2.wav")
-const BEAKGROUND_MUSIC_3 : AudioStreamMP3 = preload("res://Assets/Sounds/Background_Music_3.mp3")
 const BEAKGROUND_MUSIC_SirUp_Main_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/SirUp_Main_Theme_Alpha_3.mp3")
+const BEAKGROUND_MUSIC_Game_Over_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/Music_game_over.mp3")
 
 
 #Sounds
-const DEATH : AudioStreamWAV = preload("res://Assets/Sounds/Death.wav")
-const HURT : AudioStreamWAV = preload("res://Assets/Sounds/Hurt.wav")
-const JUMP : AudioStreamWAV = preload("res://Assets/Sounds/Jump.wav")
-const SHOOT : AudioStreamWAV = preload("res://Assets/Sounds/Shoot.wav")
-const BULLET : AudioStreamWAV = preload("res://Assets/Sounds/Bullet.wav")
 const MENU_CLICK : AudioStreamWAV = preload("res://Assets/Sounds/Menu Click.wav")
 const MENU_HOVER : AudioStreamWAV = preload("res://Assets/Sounds/Menu Hover.wav")
-const SPLASH_CLICK : AudioStreamWAV = preload("res://Assets/Sounds/Splash Click.wav")
-const SPLASH_GLITCH : AudioStreamWAV = preload("res://Assets/Sounds/Splash Glitch.wav")
 const JUMP_WTF : AudioStreamWAV = preload("res://Assets/Sounds/Vocal_WTF.wav")
 
 #Refrences

@@ -36,7 +36,7 @@ func _ready():
 	stats.health = stats.max_health
 	EventManager.update_bullet_ui.emit()
 
-func _process(delta):
+func _process(_delta):
 	if position.y < max_reached_height:
 		max_reached_height = position.y
 		reached_height.emit(abs(max_reached_height))
