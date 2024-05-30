@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_scene.gd" id="1_fkqv0"]
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_menu.gd" id="1_nw4d6"]
-[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="1_sacm0"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="1_sacm0"]
 [ext_resource type="Texture2D" uid="uid://m53jttgavgyi" path="res://Assets/Character/candee_small.png" id="3_c7abd"]
 [ext_resource type="Texture2D" uid="uid://tswiuor4vsfi" path="res://Assets/UI/UI_restart_low2.png" id="5_h8coi"]
 [ext_resource type="Texture2D" uid="uid://dnpkdg1i3ygir" path="res://Assets/UI/UI_restart_high1.png" id="6_7lskv"]

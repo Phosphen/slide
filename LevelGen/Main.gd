@@ -7,9 +7,14 @@ var ground_instances = []
 var wall_instances = []
 var spawned_platforms = []
 
+@onready var pause_menu = $Camera2D/PauseMenu
+
 func _ready():
 	#last_platform_position = Vector2(screen_width * 0.5, -DISTANCE_BETWEEN_PLATFORMS)
 	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
+
+func _exit_tree():
+	AudioManager.stop_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
 
 func _free_lowest_walls():
 	#if (wall_index < 30):

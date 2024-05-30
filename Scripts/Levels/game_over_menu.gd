@@ -16,7 +16,3 @@ func _on_start_button_up():
 func _on_quit_button_up():
 	AudioManager.play_sound(AudioManager.MENU_CLICK)
 	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
-
-func _on_continue_button_up():
-	AudioManager.play_sound(AudioManager.MENU_CLICK)
-	visible = false;

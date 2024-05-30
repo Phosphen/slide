@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxnb6qlb3lbsi"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/pause_menu.gd" id="1_2x7ie"]
+[ext_resource type="Texture2D" uid="uid://buj40gvrbwgmt" path="res://Assets/UI/UI_resume_low2.png" id="2_hf22y"]
+[ext_resource type="Texture2D" uid="uid://cmm7i4qskn74b" path="res://Assets/UI/UI_resume_high1.png" id="3_xiobu"]
+[ext_resource type="Texture2D" uid="uid://dt2mv4jus5uu7" path="res://Assets/UI/UI_main_menu_low2.png" id="7_l0ynl"]
+[ext_resource type="Texture2D" uid="uid://7i84f5srsu7a" path="res://Assets/UI/UI_main_menu_high1.png" id="8_p73q5"]
+
+[sub_resource type="Theme" id="Theme_pug2a"]
+default_font_size = 12
+
+[node name="PauseMenu" type="Control"]
+custom_minimum_size = Vector2(440, 320)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 320.0
+theme = SubResource("Theme_pug2a")
+script = ExtResource("1_2x7ie")
+metadata/_edit_vertical_guides_ = [240.0]
+metadata/_edit_horizontal_guides_ = [160.0]
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -18.0
+offset_right = 134.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Resume" type="TextureButton" parent="Buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+texture_normal = ExtResource("2_hf22y")
+texture_hover = ExtResource("3_xiobu")
+stretch_mode = 5
+
+[node name="Main menu" type="TextureButton" parent="Buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+texture_normal = ExtResource("7_l0ynl")
+texture_hover = ExtResource("8_p73q5")
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="button_up" from="Buttons/Resume" to="." method="_on_resume_button_up"]
+[connection signal="mouse_entered" from="Buttons/Resume" to="." method="_on_mouse_entered"]
+[connection signal="button_up" from="Buttons/Main menu" to="." method="_on_main_menu_button_up"]
+[connection signal="mouse_entered" from="Buttons/Main menu" to="." method="_on_mouse_entered"]
