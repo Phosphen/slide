@@ -33,8 +33,7 @@ var fall_time = 0.0  # Time the player has been falling
 @export var camera : Camera2D
 
 func _ready():
-	stats.health = stats.max_health
-	EventManager.update_bullet_ui.emit()
+	pass
 
 func _process(_delta):
 	if position.y < max_reached_height:
