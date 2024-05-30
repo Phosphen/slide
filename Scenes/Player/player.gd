@@ -212,6 +212,5 @@ func animate(input_vector):
 		animator.play("jump")
 
 func die():
-	AudioManager.play_sound(AudioManager.DEATH)
 	EventManager.player_died.emit()
 	queue_free()
