@@ -172,7 +172,7 @@ func jump_rotation(delta):
 
 
 
-func wall_bounce(input_vector):
+func wall_bounce(_input_vector):
 	velocity.x = -velocity.x * wall_bounce_strength.x
 #	velocity.x = -velocity.x + wall_bounce_strength.x
 #	velocity.y = velocity.y - wall_bounce_strength.y 
