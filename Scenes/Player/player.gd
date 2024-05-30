@@ -8,9 +8,6 @@ var rip = false
 var max_reached_height = 0.0
 var last_trigger_height = 0.0  # To track the last height at which the event was triggered
 
-var dust_vfx = preload("res://Scenes/VFX/dust.tscn")
-var landing_vfx = preload("res://Scenes/VFX/landing.tscn")
-
 #Data
 var is_wall_bouncing = false
 var is_jumping = false
@@ -24,11 +21,10 @@ var fall_time = 0.0  # Time the player has been falling
 @export var high_jump_treshold = 300.0
 @export var max_fall_time = 1.5  # Maximum time player can fall before game over
 @export var max_fall_speed: float = 600.0  # Max speed in any direction
-
-#Refrences
-@onready var animator : AnimatedSprite2D = $AnimatedSprite2D
-
 @export var camera : Camera2D
+
+@onready var animator : AnimatedSprite2D = $AnimatedSprite2D
+@onready var vfx = $PlayerParticles
 
 func _ready():
 	pass
@@ -79,25 +75,13 @@ func _physics_process(delta):
 			is_in_air = false
 			is_jumping = false
 			played_rot_jump = false
-			# TODO
-			#var instance = landing_vfx.instantiate()
-			#add_child(instance)
-			#instance.global_position = global_position + Vector2(0, 12)
-			#var landing = instance.get_child(0)
-			#landing.emitting = true
-			#print("landed!")
+			vfx.emit_landing_particles()
 	else:
 		is_in_air = true
 
 	# spawn dust vfx
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		# TODO
-		#var instance = dust_vfx.instantiate()
-		#add_child(instance)
-		#instance.global_position = global_position + Vector2(0, 20)
-		#var dust = instance.get_child(0)
-		#dust.emitting = true
-		pass
+		vfx.emit_dust_particles()
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_special_wall("jump")):
 		jump()

@@ -72,7 +72,7 @@ script = ExtResource("1_5o2wn")
 [node name="PlatformSpawner16" parent="." instance=ExtResource("12_u2tsh")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_rsqvq")]
-position = Vector2(307, 182)
+position = Vector2(250, 303)
 wall_bounce_strength = Vector2(1.5, 30)
 high_jump_treshold = 200.0
 camera = NodePath("../Camera2D")
