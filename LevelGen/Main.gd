@@ -14,7 +14,7 @@ func _ready():
 	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
 
 func _exit_tree():
-	AudioManager.stop_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
+	AudioManager.stop_music()
 
 func _free_lowest_walls():
 	#if (wall_index < 30):
@@ -25,7 +25,7 @@ func _free_lowest_walls():
 	wall2.queue_free()
 
 func _on_player_falling_to_death():
-	AudioManager.stop_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
+	AudioManager.stop_music()
 	for floor_instance in ground_instances:
 		floor_instance.queue_free()
 		

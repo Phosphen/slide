@@ -5,26 +5,6 @@
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_yrjnd")
 
-[node name="Music" type="Node" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Music"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Music"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Music"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Music"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Music"]
-volume_db = -6.0
-
 [node name="Sounds" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds"]
@@ -51,32 +31,7 @@ volume_db = -6.0
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Sounds"]
 volume_db = -6.0
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -6.0
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer13" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer14" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer15" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer16" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer17" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
-
-[node name="AudioStreamPlayer18" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -6.0
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

@@ -11,15 +11,19 @@ const JUMP_WTF : AudioStreamWAV = preload("res://Assets/Sounds/Vocal_WTF.wav")
 const JUMP: AudioStreamWAV = preload("res://Assets/Sounds/Jump.wav")
 
 #Refrences
-@onready var music_players = $Music.get_children()
+@onready var music_player : AudioStreamPlayer = $Music
 @onready var sound_players = $Sounds.get_children()
 
-func play_music(music):
-	for player in music_players:
-		if not player.playing:
-			player.stream = music
-			player.play()
-			break
+var loop_music = false
+
+func play_music(music: AudioStream, loop: bool = true):
+	loop_music = loop
+	music_player.stop()
+	music_player.stream = music
+	music_player.play()
+
+func stop_music():
+	music_player.stop()
 
 func play_sound(sound):
 	for player in sound_players:
@@ -27,10 +31,7 @@ func play_sound(sound):
 			player.stream = sound
 			player.play()
 			break
-			
-			
-func stop_music(music):
-	for player in music_players:
-		if player.playing and player.stream == music:
-			player.stop()
-			break
+
+func _on_music_finished():
+	if loop_music:
+		music_player.play()
