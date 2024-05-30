@@ -19,7 +19,6 @@ var played_rot_jump = false
 var fall_time = 0.0  # Time the player has been falling
 @export var TOP_HEIGHT = 100
 @export var movement_data : MovementData
-@export var stats : Stats
 @export var wall_bounce_strength = Vector2(30, 30) 
 @export var rotation_speed = 360
 @export var high_jump_treshold = 300.0
