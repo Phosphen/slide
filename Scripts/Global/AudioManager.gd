@@ -4,11 +4,11 @@ extends Node
 const BEAKGROUND_MUSIC_SirUp_Main_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/SirUp_Main_Theme_Alpha_3.mp3")
 const BEAKGROUND_MUSIC_Game_Over_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/Music_game_over.mp3")
 
-
 #Sounds
 const MENU_CLICK : AudioStreamWAV = preload("res://Assets/Sounds/Menu Click.wav")
 const MENU_HOVER : AudioStreamWAV = preload("res://Assets/Sounds/Menu Hover.wav")
 const JUMP_WTF : AudioStreamWAV = preload("res://Assets/Sounds/Vocal_WTF.wav")
+const JUMP: AudioStreamWAV = preload("res://Assets/Sounds/Jump.wav")
 
 #Refrences
 @onready var music_players = $Music.get_children()

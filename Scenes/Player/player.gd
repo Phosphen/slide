@@ -61,11 +61,8 @@ func trigger_game_over():
 	if rip:
 		return
 		
-	small_shake()
 	falling_to_death.emit()
 	rip = true
-	# Game over logic here, like showing a game over screen or resetting the level
-	print("Game Over!")
 
 func _physics_process(delta):
 	var input_vector = Input.get_axis("move_left", "move_right")
@@ -82,22 +79,25 @@ func _physics_process(delta):
 			is_in_air = false
 			is_jumping = false
 			played_rot_jump = false
-			var instance = landing_vfx.instantiate()
-			add_child(instance)
-			instance.global_position = global_position + Vector2(0, 12)
-			var landing = instance.get_child(0)
-			landing.emitting = true
-			print("landed!")
+			# TODO
+			#var instance = landing_vfx.instantiate()
+			#add_child(instance)
+			#instance.global_position = global_position + Vector2(0, 12)
+			#var landing = instance.get_child(0)
+			#landing.emitting = true
+			#print("landed!")
 	else:
 		is_in_air = true
 
 	# spawn dust vfx
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		var instance = dust_vfx.instantiate()
-		add_child(instance)
-		instance.global_position = global_position + Vector2(0, 20)
-		var dust = instance.get_child(0)
-		dust.emitting = true
+		# TODO
+		#var instance = dust_vfx.instantiate()
+		#add_child(instance)
+		#instance.global_position = global_position + Vector2(0, 20)
+		#var dust = instance.get_child(0)
+		#dust.emitting = true
+		pass
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_special_wall("jump")):
 		jump()
@@ -191,9 +191,6 @@ func is_on_special_wall(wall_type):
 			return true
 
 	return false
-
-func small_shake():
-	pass
 
 func animate(input_vector):
 	if input_vector != 0:
