@@ -4,9 +4,10 @@ signal reached_height
 signal reached_top
 signal falling_to_death
 
-var rip = false
-var max_reached_height = 0.0
-var last_trigger_height = 0.0  # To track the last height at which the event was triggered
+var rip: bool = false
+var max_reached_height: float = 0.0
+var last_trigger_height: float = 0.0  # To track the last height at which the event was triggered
+var last_velocity: Vector2 = Vector2.ZERO
 
 #Data
 var is_wall_bouncing = false
@@ -22,6 +23,7 @@ var fall_time = 0.0  # Time the player has been falling
 @export var max_fall_time = 1.5  # Maximum time player can fall before game over
 @export var max_fall_speed: float = 600.0  # Max speed in any direction
 @export var camera : Camera2D
+@export var landing_particles_velocity_threshold : float = 350
 
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
 @onready var vfx = $PlayerParticles
@@ -75,7 +77,8 @@ func _physics_process(delta):
 			is_in_air = false
 			is_jumping = false
 			played_rot_jump = false
-			vfx.emit_landing_particles()
+			if last_velocity.y > landing_particles_velocity_threshold:
+				vfx.emit_landing_particles()
 	else:
 		is_in_air = true
 
@@ -113,6 +116,7 @@ func _physics_process(delta):
 	if velocity.y > max_fall_speed:
 		velocity.y = max_fall_speed
 	
+	last_velocity = velocity
 	move_and_slide()
 	animate(input_vector)
 	
