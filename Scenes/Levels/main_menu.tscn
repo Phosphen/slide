@@ -13,7 +13,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Black:modulate")
+tracks/0/path = NodePath("black_overlay:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,15 +25,14 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hafqd"]
 resource_name = "Transition"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Black:modulate")
+tracks/0/path = NodePath("black_overlay:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.0742188, 0.0742188, 0.0742188, 1), Color(0.0745098, 0.0745098, 0.0745098, 0)]
@@ -41,14 +40,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Black:visible")
+tracks/1/path = NodePath("black_overlay:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awv7d"]
@@ -117,17 +116,6 @@ text = "Phosphen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Black" type="ColorRect" parent="."]
-visible = false
-modulate = Color(0.0745098, 0.0745098, 0.0745098, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_awv7d")
@@ -140,6 +128,16 @@ position = Vector2(236, 114)
 texture = ExtResource("2_66kyh")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_235or")]
+
+[node name="black_overlay" type="ColorRect" parent="."]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
