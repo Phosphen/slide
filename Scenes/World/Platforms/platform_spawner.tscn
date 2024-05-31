@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c40m4jtr36iuv"]
 
-[ext_resource type="PackedScene" uid="uid://ch4swdhnac0ml" path="res://LevelGen/Platforms/static_platform.tscn" id="1_gynv8"]
-[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://LevelGen/Platforms/default_platform.tscn" id="2_e52n1"]
-[ext_resource type="PackedScene" uid="uid://6bradx7kcacn" path="res://LevelGen/Platforms/large_platform.tscn" id="3_s6e4h"]
-[ext_resource type="Script" path="res://LevelGen/TileMap16.gd" id="4_xuj11"]
+[ext_resource type="PackedScene" uid="uid://ch4swdhnac0ml" path="res://Scenes/World/Platforms/static_platform.tscn" id="1_gynv8"]
+[ext_resource type="PackedScene" uid="uid://cdejim20utbi" path="res://Scenes/World/Platforms/default_platform.tscn" id="2_e52n1"]
+[ext_resource type="PackedScene" uid="uid://6bradx7kcacn" path="res://Scenes/World/Platforms/large_platform.tscn" id="3_s6e4h"]
+[ext_resource type="Script" path="res://Scenes/World/TileMap16.gd" id="4_xuj11"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3wg1g"]
 tile_data = PackedInt32Array(0, 4194304, 0, 1, 4259840, 0, 2, 4325376, 0, 3, 4390912, 0, 4, 4456448, 0)

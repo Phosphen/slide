@@ -16,7 +16,7 @@ func _on_resume_button_up():
 func _on_main_menu_button_up():
 	AudioManager.play_sound(AudioManager.MENU_CLICK)
 	release_pause()
-	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
 
 func trigger_pause():
 	get_tree().paused = true

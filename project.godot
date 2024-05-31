@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="SirUp And The Cozy Candy Land"
-run/main_scene="res://Scenes/Levels/splash_screen.tscn"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
-GameEnvironment="*res://Scripts/Global/GameEnvironment.gd"
+GameEnvironment="*res://Scenes/Global/GameEnvironment.gd"
 AudioManager="*res://Scenes/Global/audio_manager.tscn"
 
 [display]

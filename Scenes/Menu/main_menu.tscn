@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://1nwvmn6wghcv"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/main_menu.gd" id="1_n0v58"]
+[ext_resource type="Script" path="res://Scenes/Menu/main_menu.gd" id="1_n0v58"]
 [ext_resource type="Texture2D" uid="uid://bnfq8bc2278pt" path="res://Assets/UI/UI_start_low2.png" id="2_3vw0x"]
 [ext_resource type="Texture2D" uid="uid://ckb7oym7s6u61" path="res://Assets/Menu/title.png" id="2_66kyh"]
-[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="3_235or"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="3_235or"]
 [ext_resource type="Texture2D" uid="uid://bhg3qu8xty1px" path="res://Assets/UI/UI_start_high1.png" id="3_eebpj"]
 [ext_resource type="Texture2D" uid="uid://bdrwml1j1b86b" path="res://Assets/UI/UI_quit_low2.png" id="4_tu51e"]
 [ext_resource type="Texture2D" uid="uid://bnjecjjgvk8xy" path="res://Assets/UI/UI_quit_high1.png" id="5_yygat"]

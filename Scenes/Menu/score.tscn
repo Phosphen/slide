@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckqfa8aki05qq"]
 
-[ext_resource type="Script" path="res://Scenes/Score/score_ui.gd" id="1_y53uk"]
+[ext_resource type="Script" path="res://Scenes/Menu/score_ui.gd" id="1_y53uk"]
 [ext_resource type="FontFile" uid="uid://bwknrkq53hpws" path="res://Assets/Fonts/PeaberryBase.ttf" id="3_052dj"]
 
 [node name="GUI" type="CanvasLayer"]

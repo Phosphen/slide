@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://buymrux01rude"]
 
-[ext_resource type="Script" path="res://LevelGen/Main.gd" id="1_5o2wn"]
+[ext_resource type="Script" path="res://Scenes/World/Main.gd" id="1_5o2wn"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
-[ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Scenes/Score/score.tscn" id="5_ahuf4"]
-[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="6_klvki"]
+[ext_resource type="PackedScene" uid="uid://ckqfa8aki05qq" path="res://Scenes/Menu/score.tscn" id="5_ahuf4"]
+[ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="6_klvki"]
 [ext_resource type="Texture2D" uid="uid://bowmvgu73u4r2" path="res://Assets/World/world-ground.png" id="7_nyksw"]
-[ext_resource type="PackedScene" uid="uid://cxnb6qlb3lbsi" path="res://Scenes/Levels/pause_menu.tscn" id="8_mn5ce"]
-[ext_resource type="PackedScene" uid="uid://dylpttjqgssn3" path="res://LevelGen/Walls/wall_spawner_64.tscn" id="11_jrs1f"]
-[ext_resource type="PackedScene" uid="uid://c40m4jtr36iuv" path="res://LevelGen/Platforms/platform_spawner.tscn" id="12_u2tsh"]
+[ext_resource type="PackedScene" uid="uid://cxnb6qlb3lbsi" path="res://Scenes/Menu/pause_menu.tscn" id="8_mn5ce"]
+[ext_resource type="PackedScene" uid="uid://dylpttjqgssn3" path="res://Scenes/World/Walls/wall_spawner_64.tscn" id="11_jrs1f"]
+[ext_resource type="PackedScene" uid="uid://c40m4jtr36iuv" path="res://Scenes/World/Platforms/platform_spawner.tscn" id="12_u2tsh"]
 
 [sub_resource type="GDScript" id="GDScript_2srvb"]
 resource_name = "FollowCamera"

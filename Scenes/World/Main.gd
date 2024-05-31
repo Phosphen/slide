@@ -25,7 +25,7 @@ func _free_lowest_walls():
 	wall2.queue_free()
 	
 func go_to_game_over_screen():
-		get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Menu/game_over.tscn")
 	
 func _on_player_falling_to_death():
 	AudioManager.stop_music()

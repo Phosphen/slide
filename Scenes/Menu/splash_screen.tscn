@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://do2c1xdpf2kno"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/splash_screen.gd" id="1_4i2yg"]
+[ext_resource type="Script" path="res://Scenes/Menu/splash_screen.gd" id="1_4i2yg"]
 [ext_resource type="Texture2D" uid="uid://red5irpxwdb7" path="res://Assets/Menu/phosphen_splash_screen.png" id="2_yvei7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0ykb"]

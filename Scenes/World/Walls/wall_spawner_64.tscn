@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dylpttjqgssn3"]
 
-[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://LevelGen/wall.tscn" id="1_h08ic"]
-[ext_resource type="PackedScene" uid="uid://dt8k5qow2u6mp" path="res://LevelGen/Walls/fly_wall.tscn" id="2_e7v13"]
-[ext_resource type="PackedScene" uid="uid://cs1kvxlf6xe5l" path="res://LevelGen/Walls/jump_wall.tscn" id="3_2ra73"]
+[ext_resource type="PackedScene" uid="uid://dauc37uwpt3b7" path="res://Scenes/World/Walls/default_wall.tscn" id="1_h08ic"]
+[ext_resource type="PackedScene" uid="uid://dt8k5qow2u6mp" path="res://Scenes/World/Walls/fly_wall.tscn" id="2_e7v13"]
+[ext_resource type="PackedScene" uid="uid://cs1kvxlf6xe5l" path="res://Scenes/World/Walls/jump_wall.tscn" id="3_2ra73"]
 [ext_resource type="Texture2D" uid="uid://ccihd8vd4uu3b" path="res://Assets/World/world-tileset.png" id="4_bphky"]
-[ext_resource type="Script" path="res://LevelGen/TileMap64.gd" id="5_n4aqw"]
+[ext_resource type="Script" path="res://Scenes/World/TileMap64.gd" id="5_n4aqw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hjs2i"]
 tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 131072, 0, 3, 196608, 0, 4, 262144, 0)
