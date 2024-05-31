@@ -83,8 +83,6 @@ update_position = false
 update_rotation = false
 update_scale = false
 
-[node name="GUI" parent="." instance=ExtResource("5_ahuf4")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(240, 142)
 script = SubResource("GDScript_2srvb")
@@ -115,6 +113,8 @@ texture = ExtResource("7_nyksw")
 position = Vector2(2.08165e-12, 400)
 shape = SubResource("RectangleShape2D_xidxv")
 debug_color = Color(0, 0.65098, 0.133333, 0.419608)
+
+[node name="GUI" parent="." instance=ExtResource("5_ahuf4")]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_klvki")]
 
