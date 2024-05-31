@@ -4,6 +4,7 @@ extends CanvasLayer
 
 func _ready():
 	score_label.text="0m"
+	GameEnvironment.new_height_reached.connect(_update_display)
 
-func _on_player_reached_height(max_reached_height):
-	score_label.text = "%.0fm" % (max_reached_height / 100)
+func _update_display(height: int):
+	score_label.text = "%.0fm" % height

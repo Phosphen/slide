@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dwp3smqqbdr6s"]
+[gd_scene load_steps=20 format=3 uid="uid://dwp3smqqbdr6s"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_scene.gd" id="1_fkqv0"]
 [ext_resource type="Script" path="res://Scripts/Levels/game_over_menu.gd" id="1_nw4d6"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Levels/world_parallax_bg.tscn" id="1_sacm0"]
 [ext_resource type="Texture2D" uid="uid://m53jttgavgyi" path="res://Assets/Character/candee_small.png" id="3_c7abd"]
+[ext_resource type="FontFile" uid="uid://bwknrkq53hpws" path="res://Assets/Fonts/PeaberryBase.ttf" id="5_36j8x"]
 [ext_resource type="Texture2D" uid="uid://tswiuor4vsfi" path="res://Assets/UI/UI_restart_low2.png" id="5_h8coi"]
 [ext_resource type="Texture2D" uid="uid://dnpkdg1i3ygir" path="res://Assets/UI/UI_restart_high1.png" id="6_7lskv"]
 [ext_resource type="Texture2D" uid="uid://dt2mv4jus5uu7" path="res://Assets/UI/UI_main_menu_low2.png" id="7_3sbwc"]
@@ -98,6 +99,35 @@ offset_bottom = 320.0
 theme = SubResource("Theme_pug2a")
 script = ExtResource("1_nw4d6")
 metadata/_edit_vertical_guides_ = [225.0]
+
+[node name="Desciptor" type="Label" parent="GameOverMenu"]
+texture_filter = 1
+offset_top = 90.0
+offset_right = 480.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0.976471, 0.901961, 0.811765, 1)
+theme_override_colors/font_outline_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_36j8x")
+theme_override_font_sizes/font_size = 16
+text = "Your score
+"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="GameOverMenu"]
+texture_filter = 1
+layout_mode = 2
+offset_top = 110.0
+offset_right = 480.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0.976471, 0.901961, 0.811765, 1)
+theme_override_colors/font_outline_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_36j8x")
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="GameOverMenu"]
 layout_mode = 1

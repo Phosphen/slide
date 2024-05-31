@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
-EventManager="*res://Scripts/Global/event_manager.gd"
+GameEnvironment="*res://Scripts/Global/GameEnvironment.gd"
 AudioManager="*res://Scenes/Global/audio_manager.tscn"
 
 [display]

@@ -120,7 +120,6 @@ debug_color = Color(0, 0.65098, 0.133333, 0.419608)
 
 [connection signal="falling_to_death" from="Player" to="." method="_on_player_falling_to_death"]
 [connection signal="falling_to_death" from="Player" to="Camera2D" method="_on_player_falling_to_death"]
-[connection signal="reached_height" from="Player" to="GUI" method="_on_player_reached_height"]
 [connection signal="reached_top" from="Player" to="WallSpawner64" method="_on_player_reached_top"]
 [connection signal="reached_top" from="Player" to="PlatformSpawner16" method="_on_player_reached_top"]
 [connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]

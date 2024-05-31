@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-signal reached_height
 signal reached_top
 signal falling_to_death
 
@@ -36,7 +35,7 @@ func _ready():
 func _process(_delta):
 	if position.y < max_reached_height:
 		max_reached_height = position.y
-		reached_height.emit(abs(max_reached_height))
+		GameEnvironment.update_reached_hight(abs(max_reached_height / 100))
 
 	# Calculate the height difference since the last trigger
 	var height_difference = max_reached_height - last_trigger_height
@@ -209,5 +208,5 @@ func animate(input_vector):
 		animator.play("jump")
 
 func die():
-	EventManager.player_died.emit()
+	GameEnvironment.player_died.emit()
 	queue_free()
