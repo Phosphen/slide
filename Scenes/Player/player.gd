@@ -8,13 +8,13 @@ var rip: bool = false
 var max_reached_height: float = 0.0
 var last_trigger_height: float = 0.0  # To track the last height at which the event was triggered
 var last_velocity: Vector2 = Vector2.ZERO
-
-#Data
+var was_on_ground: bool = true
 var is_wall_bouncing = false
 var is_jumping = false
 var is_in_air = false
 var played_rot_jump = false
 var fall_time = 0.0  # Time the player has been falling
+
 @export var TOP_HEIGHT = 100
 @export var movement_data : MovementData
 @export var wall_bounce_strength = Vector2(30, 30) 
@@ -27,6 +27,8 @@ var fall_time = 0.0  # Time the player has been falling
 
 @onready var animator : AnimatedSprite2D = $AnimatedSprite2D
 @onready var vfx = $PlayerParticles
+@onready var jump_anticipation_timer : Timer = $jump_anticipation_timer
+@onready var coyote_timer: Timer = $coyote_timer
 
 func _ready():
 	pass
@@ -64,6 +66,7 @@ func trigger_game_over():
 
 func _physics_process(delta):
 	var input_vector = Input.get_axis("move_left", "move_right")
+	
 	if input_vector != 0 :
 		apply_acceleration(input_vector, delta)
 	elif is_on_floor():
@@ -71,8 +74,12 @@ func _physics_process(delta):
 	
 	apply_gravity(delta)
 	
+	if was_on_ground:
+		coyote_timer.start()
+	
 	# spawn landing vfx on landing
 	if is_on_floor():
+		was_on_ground = true
 		if is_in_air:
 			is_in_air = false
 			is_jumping = false
@@ -81,12 +88,18 @@ func _physics_process(delta):
 				vfx.emit_landing_particles()
 	else:
 		is_in_air = true
+		was_on_ground = false
+
+	if Input.is_action_just_pressed("jump"):
+		jump_anticipation_timer.start()
 
 	# spawn dust vfx
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		vfx.emit_dust_particles()
 	
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_special_wall("jump")):
+	var is_on_floor = is_on_floor() or !coyote_timer.is_stopped()
+	var wants_to_jump = (Input.is_action_just_pressed("jump") or !jump_anticipation_timer.is_stopped())
+	if wants_to_jump and (is_on_floor or is_on_special_wall("jump")):
 		jump()
 		if abs(velocity.x) > high_jump_treshold:
 			is_jumping = true
