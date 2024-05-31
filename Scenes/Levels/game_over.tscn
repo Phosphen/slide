@@ -78,10 +78,11 @@ default_font_size = 12
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_fkqv0")
+metadata/_edit_vertical_guides_ = [240.0]
 
 [node name="SpinningPlayer" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(236, -30)
+position = Vector2(240, -30)
 sprite_frames = SubResource("SpriteFrames_k3gmm")
 animation = &"spin"
 autoplay = "spin"

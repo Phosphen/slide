@@ -97,9 +97,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		vfx.emit_dust_particles()
 	
-	var is_on_floor = is_on_floor() or !coyote_timer.is_stopped()
+	var is_on_floor_proxy = is_on_floor() or !coyote_timer.is_stopped()
 	var wants_to_jump = (Input.is_action_just_pressed("jump") or !jump_anticipation_timer.is_stopped())
-	if wants_to_jump and (is_on_floor or is_on_special_wall("jump")):
+	if wants_to_jump and (is_on_floor_proxy or is_on_special_wall("jump")):
 		jump()
 		if abs(velocity.x) > high_jump_treshold:
 			is_jumping = true

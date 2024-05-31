@@ -23,7 +23,10 @@ func _free_lowest_walls():
 	var wall2 = wall_instances.pop_at(0)
 	wall1.queue_free()
 	wall2.queue_free()
-
+	
+func go_to_game_over_screen():
+		get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")
+	
 func _on_player_falling_to_death():
 	AudioManager.stop_music()
 	for floor_instance in ground_instances:
@@ -37,4 +40,7 @@ func _on_player_falling_to_death():
 	spawned_platforms.clear()
 	ground_instances.clear()
 
-	get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")
+	# in some cases an error is thrown,
+	# when "change_scene_to_file" is called
+	# in the physics process, so we do it this way...
+	call_deferred("go_to_game_over_screen")
