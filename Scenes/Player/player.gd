@@ -94,7 +94,7 @@ func _physics_process(delta):
 
 	# spawn dust vfx
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		vfx.emit_dust_particles()
+		vfx.emit_jump_particles()
 	
 	var is_on_floor_proxy = is_on_floor() or !coyote_timer.is_stopped()
 	var wants_to_jump = (Input.is_action_just_pressed("jump") or !jump_anticipation_timer.is_stopped())
