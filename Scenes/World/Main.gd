@@ -7,11 +7,14 @@ var ground_instances = []
 var wall_instances = []
 var spawned_platforms = []
 
+var main_music_started = false
+
 @onready var pause_menu = $Camera2D/PauseMenu
 
 func _ready():
+	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_Cave_Theme)
 	#last_platform_position = Vector2(screen_width * 0.5, -DISTANCE_BETWEEN_PLATFORMS)
-	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)
+	pass
 
 func _exit_tree():
 	AudioManager.stop_music()
@@ -44,3 +47,11 @@ func _on_player_falling_to_death():
 	# when "change_scene_to_file" is called
 	# in the physics process, so we do it this way...
 	call_deferred("go_to_game_over_screen")
+
+
+func _on_start_music_area_2d_area_entered(area):
+	if main_music_started:
+		return
+	main_music_started = true
+	AudioManager.stop_music()
+	AudioManager.play_music(AudioManager.BEAKGROUND_MUSIC_SirUp_Main_Theme)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://buymrux01rude"]
+[gd_scene load_steps=13 format=3 uid="uid://buymrux01rude"]
 
 [ext_resource type="Script" path="res://Scenes/World/Main.gd" id="1_5o2wn"]
 [ext_resource type="PackedScene" uid="uid://dvjodc5t5wxm1" path="res://Scenes/Player/player.tscn" id="4_rsqvq"]
@@ -64,6 +64,9 @@ func _on_area_entered(area):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xidxv"]
 size = Vector2(498, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_072v6"]
+size = Vector2(317, 29)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5o2wn")
 
@@ -118,8 +121,17 @@ debug_color = Color(0, 0.65098, 0.133333, 0.419608)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_klvki")]
 
+[node name="StartMusicArea2D" type="Area2D" parent="."]
+position = Vector2(240, 50)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartMusicArea2D"]
+shape = SubResource("RectangleShape2D_072v6")
+
 [connection signal="falling_to_death" from="Player" to="." method="_on_player_falling_to_death"]
 [connection signal="falling_to_death" from="Player" to="Camera2D" method="_on_player_falling_to_death"]
 [connection signal="reached_top" from="Player" to="WallSpawner64" method="_on_player_reached_top"]
 [connection signal="reached_top" from="Player" to="PlatformSpawner16" method="_on_player_reached_top"]
 [connection signal="area_entered" from="GameOverArea" to="GameOverArea" method="_on_area_entered"]
+[connection signal="area_entered" from="StartMusicArea2D" to="." method="_on_start_music_area_2d_area_entered"]

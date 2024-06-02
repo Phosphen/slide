@@ -3,6 +3,7 @@ extends Node
 #Music
 const BEAKGROUND_MUSIC_SirUp_Main_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/SirUp_Main_Theme_Alpha_3.mp3")
 const BEAKGROUND_MUSIC_Game_Over_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/Music_game_over.mp3")
+const BEAKGROUND_MUSIC_Cave_Theme : AudioStreamMP3 = preload("res://Assets/Sounds/Cave_Theme.mp3")
 
 #Sounds
 const MENU_CLICK : AudioStreamWAV = preload("res://Assets/Sounds/Menu Click.wav")
