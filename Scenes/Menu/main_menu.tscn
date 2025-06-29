@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://1nwvmn6wghcv"]
 
-[ext_resource type="Script" path="res://Scenes/Menu/main_menu.gd" id="1_n0v58"]
+[ext_resource type="Script" uid="uid://bivj6ixgfc13d" path="res://Scenes/Menu/main_menu.gd" id="1_n0v58"]
 [ext_resource type="Texture2D" uid="uid://bnfq8bc2278pt" path="res://Assets/UI/UI_start_low2.png" id="2_3vw0x"]
 [ext_resource type="Texture2D" uid="uid://ckb7oym7s6u61" path="res://Assets/Menu/title.png" id="2_66kyh"]
 [ext_resource type="PackedScene" uid="uid://b4wc07be030nk" path="res://Scenes/Global/world_parallax_bg.tscn" id="3_235or"]
@@ -52,8 +52,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awv7d"]
 _data = {
-"RESET": SubResource("Animation_q4pwp"),
-"Transition": SubResource("Animation_hafqd")
+&"RESET": SubResource("Animation_q4pwp"),
+&"Transition": SubResource("Animation_hafqd")
 }
 
 [node name="MainMenu" type="Control"]

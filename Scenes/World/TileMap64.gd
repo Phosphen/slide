@@ -34,4 +34,3 @@ func _spawn_walls(index):
 func _on_player_reached_top():
 	# todo: clear lower batch
 	_spawn_next_batch()
-

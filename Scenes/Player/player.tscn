@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://dvjodc5t5wxm1"]
 
-[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_dpnq5"]
+[ext_resource type="Script" uid="uid://km2xlx0mk1qx" path="res://Scenes/Player/player.gd" id="1_dpnq5"]
 [ext_resource type="Resource" uid="uid://bvast80iosmev" path="res://Scenes/Player/Player Movement Data.tres" id="2_spjjl"]
-[ext_resource type="Shader" path="res://Scenes/Player/Hit Flash.gdshader" id="4_c6p70"]
+[ext_resource type="Shader" uid="uid://bo3o8xtb6ksd0" path="res://Scenes/Player/Hit Flash.gdshader" id="4_c6p70"]
 [ext_resource type="PackedScene" uid="uid://d05vksvic0kq3" path="res://Scenes/VFX/player_particles.tscn" id="5_dkdqg"]
 [ext_resource type="Texture2D" uid="uid://bwxcui4levkol" path="res://Assets/Character/candee.png" id="5_lax0g"]
 
@@ -142,9 +142,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hl060"]
 _data = {
-"Hit": SubResource("Animation_q36re"),
-"Normal": SubResource("Animation_otwvt"),
-"RESET": SubResource("Animation_ubivd")
+&"Hit": SubResource("Animation_q36re"),
+&"Normal": SubResource("Animation_otwvt"),
+&"RESET": SubResource("Animation_ubivd")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt8q3"]
